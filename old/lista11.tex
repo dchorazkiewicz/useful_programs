@@ -1,0 +1,36 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{tasks}
+\usepackage{amsmath}
+
+\title{Programy użytkowe \\ Lista 11}
+\date{}
+\usepackage{polski}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item Korzystając z \href{https://pl.wikipedia.org/wiki/Uk%C5%82ad_r%C3%B3wna%C5%84_liniowych#Posta%C4%87_i_zapis}{postaci macierzowej} rozwiąż następujące układy równań
+\begin{tasks}[label=\alph*)](2)
+\task 
+$
+\begin{cases}
+3x+2y-z=1\\
+2x-2y+4z=-2\\
+-2x+y-z=0
+\end{cases}
+\quad$
+
+\task 
+$\begin{cases}
+3x+2y-z=1\\
+2x-2y+4z=-2
+\end{cases}$
+\end{tasks}
+Uwaga: w drugim przypadku mamy nieonaczony układ równań. Należy więc skorzystać z funkcji \verb|rref| na rozszerzonej macierzy układu równań i samodzielnie odwikłać rozwiązania ze zwróconej postaci schodkowej.
+\item Narysuj wykresy funkcji $\sin{x}$ oraz $\cos{x}$. Aby znalazły się na jednym rysunku, między wywołaniami funkcji \verb|plot| użyj komendy \verb|hold on|. Zwróć uwagę, że w Octave musisz ręcznie zdefiniować wektor argumentów oraz wartości.
+\item Korzystając z pętli \verb|for| nanieś na wykres kolejne funkcje Bessela $J_{\alpha_1},...,J_{\alpha_n}$.
+\end{enumerate}
+\textbf{Zadanie domowe.} Wybierz dowolną inną \href{https://docs.octave.org/v4.4.0/Special-Functions.html}{funkcję specjalną} niż $J_\alpha$, wykonaj jej wyjkres, umieś go w pliku w \LaTeX{u} i dołącz wyrażenie ją opisujące.
+\end{document}

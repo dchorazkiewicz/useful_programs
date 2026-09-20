@@ -1,0 +1,35 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[T1]{fontenc}
+
+\usepackage{amsfonts}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{float}
+%\usepackage{natbib}
+
+\usepackage{polski}
+%\usepackage[utf8]{inputenc}
+
+\title{Programy użytkowe \\ Lista 5}
+
+\date{}
+
+\begin{document}
+\maketitle
+Aby uruchomić Gnuplota w trybie interaktywnym, wprowadzamy w linii komend polecenie \texttt{gnuplot}.
+
+Polecenia do tej listy wykonaj w trybie interaktywnym. Zapisz je w dokumencie \LaTeX{a}, dołączając do każdego polecenia wygenerowany przez nie wykres (w zadaniach, gdzie produkujemy kilka wykresów możesz użyć \verb|subfigure|). Wskazówka: do wyróżnienia kodu użyj polecenia \verb|\texttt{}|.
+\begin{enumerate}
+    \item Narysuj wykres funkcji $\sin{(x)},\, \sin{(2x)},\,\sin{(2x)}+\sin{(x)}$
+    \begin{enumerate}
+        \item każdy na osobnym rysunku,
+        \item na wspólnym rysunku.
+    \end{enumerate}
+    Dodaj podpisy osi oraz tytuł i legendę.
+    \item Wykonaj wykres funkcji $y = \tg{(x)}$ i $y = 1/x$. Zlokalizuj na nim dodatnie rozwiązanie równania $\tg{(x)} = 1/x$. Na podstawie wykresu znajdź przybliżoną wartość tego rozwiązania (z dokładnością do co najmniej 4 cyfr po przecinku). Wskazówka: w oknie terminala powiększ wykres w okolicach „podejrzanego” punktu. W lewym dolnym rogu wyświetlane są współrzędne miejsca, nad którym znajduje się kursor.
+    \item Sprawdź jak wygląda wykres funkcji $\tg{(x)}$ w okolicy asymptoty. Wyjaśnij obserwowany efekt. Wskazówka: \texttt{set samples}.
+    \item Nanieś na wykres dane z pliku \texttt{dane1.dat}. Użyj punktów, łamanej. Dopasuj krzywą gładką (wskazówka \verb|smooth csplines|).
+\end{enumerate}
+\end{document}

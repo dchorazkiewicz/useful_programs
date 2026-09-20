@@ -1,0 +1,48 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[T1]{fontenc}
+
+\usepackage{amsfonts}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{float}
+%\usepackage{natbib}
+
+\usepackage{polski}
+%\usepackage[utf8]{inputenc}
+
+\title{Programy użytkowe \\ Lista 4}
+
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item Użyj pakietów \verb|hyperref| oraz polecenia \verb|\tableofcontents| do utworzenia spisu treści na początku dokumentu, który zawiera co najmniej dwie sekcje oraz po jednej podsekcji.
+    \item Dodaj w polu autora afiliację, używając znaku nowej linii lub korzystając z pakietu \verb|authblk|.
+    \item Dodaj streszczenie notatki (\verb|abstract|).
+    \item Używając \verb|marginpar| nanieś komentarz na marginesie akapitu oraz równania w trybie wyróżnionym.\marginpar{Efekt ma być taki.}
+    \item Używając polecenia \verb|\footnote| dodaj komentarz w stopce.
+    \item Utwórz bibliografię na końcu notatki. Niech zawiera ona co najmniej dwa elementy, jeden będący artykułem, a drugi książką, na przykład
+   % \bibliographystyle{plainnat}
+    \begin{center}
+    \begin{minipage}{0.7\linewidth}
+        \begin{thebibliography}{9}
+ %   \bibliographystyle{plainnat}
+    \bibitem{Einstein:1905ve}
+A.~Einstein,
+\textit{On the electrodynamics of moving bodies},
+Annalen Phys. \textbf{17} (1905), 891-921
+%681 citations counted in INSPIRE as of 27 Oct 2025
+\bibitem{Dirac30}P. A. M. Dirac, \textit{The Principles of Quantum Mechanics}, Clarendon Press, 4th edition, [1930] 1981
+\end{thebibliography}
+    \end{minipage}
+        \end{center}
+        Użyj alternatywnej metody tworzenia odnośników, np. [Ein05] zamiast [1] i [Dir30] zamiast [2].
+    \item Korzystając z polecenia \verb|\appendix| dołącz dwie sekcje uzupełnienia na końcu notatki, za bbliografią. 
+\end{enumerate}
+\textbf{Zadanie domowe.} Zapisz w \LaTeX~zadanie rozwiązanie przez Ciebie przy tablicy, albo fragment wykładu (twierdzenie, lemat, przykład).
+
+
+\end{document}

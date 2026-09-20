@@ -1,0 +1,13 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+
+\usepackage[style=alphabetic,sort=nyt]{biblatex}
+\addbibresource{bibliografia.bib}
+\usepackage{lipsum}
+\begin{document}
+\lipsum[1]
+
+\cite{Strelchuk_2023} jest ciekawym artykułem.
+\nocite{Grinko2024}
+\printbibliography
+\end{document}

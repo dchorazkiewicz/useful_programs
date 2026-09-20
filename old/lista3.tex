@@ -1,0 +1,46 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[T1]{fontenc}
+
+\usepackage{amsfonts}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{float}
+
+\usepackage{polski}
+%\usepackage[utf8]{inputenc}
+
+\title{Programy użytkowe \\ Lista 3}
+\author{ }
+\date{}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item Umieść w dokumencie obrazek, wykorzystując któryś z przykładowych obrazów (np. \texttt{example-image-a}) zamiast własnoręcznie przesyłanego obrazu.
+    \item Przetestuj różnicę w znaczeniu \verb|\inewidth| oraz \verb|\textwidth| przy ustalaniu szerokości obrazu (najlepiej w tym celu użyj przejdź do trybu dwukolumnowego).
+    \item Użyj środowiska \verb|wrapfigure|, aby uzyskać efekt wykresu otoczonego tekstem (dodaj obrazek przesunięty do lewej i do prawej krawędzi).
+    \item Umieść dwa wykresy obok siebie, do każdego z nich dodając osobny podpis (użyj \verb|minipage| lub \verb|subfigure|). 
+    Poeksperymentuj z przerwami między wykresami (\verb|\hfill|, \verb|\hspace{}|)
+    
+    \item Stwórz tabelę, jak poniżej
+    \begin{table}[H]
+        \centering
+          \caption{Podstawowe informacje o kilku funkcjach elementarnych}
+        \begin{tabular}{c c c c}
+        \toprule
+        $f(x)$ & dziedzina & zbiór wartości & miejsce zerowe \\
+        \midrule
+        \midrule
+        ${x^2}$ & $\mathbb{R}$ & $\mathbb{R}_+$ & $0$ \\
+        $\cos(x)$ & $\mathbb{R}$ & $[-1,1]$ & $2k\pi + \frac{\pi}{2},\,k\in\mathbb{Z}$ \\
+       $ \exp(x)$ & $\mathbb{R}$ & $\mathbb{R}_+$ &\\
+       \bottomrule
+        \end{tabular}
+        \label{fig:placeholder}
+    \end{table}
+\end{enumerate}
+\textbf{Zadanie domowe.} Zapisz szkic rozwiązania zadania rozwiązanego przez Ciebie przy tablicy w zeszłym tygodniu. Jeśli nie ma takiego zadania, zapisz dowolne twierdzenie, fakt lub lemat ze szkicem dowodu z któregoś z zeszłotygodniowych wykładów (wskazówka \verb|\newtheorem{twierdzenie}{Twierdzenie}| lub analogicznie \texttt{Fakt}, \texttt{Lemat}).
+\end{document}
+\endenumerate

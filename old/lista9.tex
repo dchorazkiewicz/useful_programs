@@ -1,0 +1,23 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[T1]{fontenc}
+
+\title{Programy użytkowe \\ Lista 9}
+\date{}
+\usepackage{polski}
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item Zmodyfikuj zadanie z poprzedniej listy tak, aby sprawdzać, czy katalog już istnieje przed próbą jego utworzenia. Skorzystaj z z konstrukcji \verb|if[ -d ...]|. Uwaga na spacje wewnątrz nawiasu kwadratowego.
+    \item Przy pomocy pętli \texttt{while read LINE} wczytaj zawartość pliku \texttt{wejście.txt} i wypisz na ekran 
+    (\texttt{echo}) w następujący sposób
+    \begin{enumerate}
+        \item jeśli wartość w tym wierszu jest mniejsza niż 10000, zastąp ją przez 0;
+        \item w przeciwnym wypadku, wypisz wiersz bez zmiany.
+    \end{enumerate}
+    \label{it:zadanie}
+    \item Uruchom skrypt z poprzedniego zadania tak, aby wypisał wynik nie na ekran, ale do pliku \texttt{wyjście.txt}. Skorzystaj z operatora przekierowania \verb|>| (nie zmieniaj zawartości kodu).
+    \item Zmodyfikuj skrypt z zadania \ref{it:zadanie} tak, aby wypisywanie zmodyfikowanych linijek odbywało się do pliku \texttt{wyjscie.txt}. Zwróć uwagę na różnicę między operatorami \verb|>| oraz \verb|>>|.
+    
+\end{enumerate}
+\end{document}

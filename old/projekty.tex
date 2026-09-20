@@ -1,0 +1,30 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+% \usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\title{Projekty zaliczeniowe}
+\date{}
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item Napisz krótki artykuł na interesujący Cię temat, z zakresu matematyki lub fizyki. Może to też być fragment wykładu. Powinny się w nim znaleźć
+    \begin{enumerate}
+        \item streszczenie;
+        \item równania - pamiętaj o odpowiedniej numeracji, najlepiej, żeby etykiety \verb|\label| posiadały właściwe nazwy (np. zamiast \verb|\label{rownanie1}| powinno być \verb|\label{eq:twierdzenie_Pitagorasa}| ), równania wielolinijkowe powinny być właściwie złamane;
+        \item wykres, tabela - jeśli kontekst na to pozwala, warto użyć \verb|subfigure| (w przypadku tematów, do których trudno dobrać wykres lub tabelę skup się bardziej na formułach matematycznych);
+        \item osobiście zdefiniowane środowiska;
+        \item osobiście zdefiniowane polecenia (przynajmniej jedno);
+        \item bibliografia w osobnym pliku (sugerowany BibLaTeX, może być też BibTeX).
+    \end{enumerate}
+    Jeśli notatka zawiera zdecydowanie więcej tekstu, niż wyrażeń matematycznych, zastosuj układ dwukolumnowy. Skompilowany dokument nie może zawierać żadnych błędów, najlepiej, żeby nie było również ostrzeżeń.
+    \item Skrypt do automatyzacji zadań w Bashu. Tutaj dowolność jest większa, można zaproponować własny pomysł. Na przykład: zautomatyzowane dopasowywanie funkcji liniowej. Załóżmy, że w katalogu znajduje się kilka dwukolumnowych plików. Należy napisać skrypt, który
+    \begin{enumerate}
+        \item stworzy osobny folder dla każdego pliku z danymi (powinien obsługiwać przypadek, kiedy taki folder już istnieje),
+        \item uruchomi skrypt gnuplota, w którym dopasowana zostanie funkcja liniowa do danych oraz narysowany wykres dopasowanej prostej, każdy zapisany w odpowiednim folderze,
+        \item wykres, wraz w parametrami dopasowania (wskazówka plik \verb|fit.log|) powinny być umieszczane w pliku \LaTeX{a}, z dodatkową informacją kiedy skrypt został wykonany.
+    \end{enumerate}
+\end{enumerate}
+\end{document}

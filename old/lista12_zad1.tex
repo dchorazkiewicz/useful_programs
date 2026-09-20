@@ -1,0 +1,27 @@
+% rozwiązanie zadania 1 z listy 12
+\documentclass[]{article}
+ \usepackage{amsmath}
+\numberwithin{equation}{section} %wymaga ams math
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma} % lemat używa tego samego licznika co twierdzenie
+\numberwithin{theorem}{section}
+\newtheorem{definition}{Definition}[section] %definicja numerowana przez sekcje
+\begin{document}
+
+\section{Test}
+\begin{equation}
+    1+2+3
+\end{equation}
+\begin{definition}
+lala
+\end{definition}
+\section{Test dwa}
+\begin{equation}
+    1+2+3
+\end{equation}
+\begin{theorem}
+\end{theorem}
+\begin{lemma}
+\end{lemma}
+\end{document}

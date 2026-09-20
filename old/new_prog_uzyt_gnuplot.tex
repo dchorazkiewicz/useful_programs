@@ -1,0 +1,1152 @@
+%!TEX TS-Program = xelatex
+
+\documentclass{beamer}
+
+%\usepackage[latin2]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{graphicx}
+\usepackage{minted}
+%\usepackage{epsfig}
+\usepackage{xcolor}
+\usetheme{metropolis}
+%\usepackage{minted}
+%\usetheme{JM}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usecolortheme{seahorse}
+
+
+\usepackage{color}
+\usepackage{listings}
+
+\newtheorem{definicja}{Definicja}
+\newtheorem{twierdzenie}{Twierdzenie}
+\newtheorem{przyklad}{Przykład}
+\newtheorem{uwaga}{Uwaga}
+\newtheorem{algorytm}{Algorytm}
+
+\author{}
+\title{Gnuplot \\ Tworzenie wykresów}
+\date{2025}
+
+\begin{document}
+\maketitle
+
+\section{Wstęp}
+
+% \frame{{Narzędzia alternatywne}
+
+% \begin{columns}
+% \begin{column}{0.5\textwidth}
+% \begin{itemize}
+% \item Fityk
+% \item Grace
+% \item Veusz
+% \item SciDAVis
+% \item QtiPlot
+% \item PAW++
+% \item Root (podstawowy w fizyce wysokich energii)
+% \item Matlab
+% \item Octave
+% 
+% \end{itemize}
+% \end{column}
+% \begin{column}{0.5\textwidth}
+% \begin{itemize}
+% \item Maple
+% \item Mathematica
+% \item XGraph
+% \item SciPy, NumPy
+% \item Scilab
+% \item R
+% \item Origin
+% \item Excel
+% \item ....
+% \end{itemize}
+% \end{column}
+% \end{columns}
+% }
+% \frame{
+% \begin{itemize}
+%  \item Gnuplot jest jednym z najbardziej popularnych programów do tworzenia ,,grafiki naukowej'', czyli wykresów. 
+%  \item Występuje on w wersjach pracujących na większości systemów.
+%  \item Zaletami są efekty jego pracy i pełna kontrola nad wynikami. 
+%  \item Niestety jest to program wymagający znajomości odpowiednich instrukcji.
+%  \item Obecna wersja stabilna to 6.0.1 (listopad 2024) \\
+%  \pause
+%  
+% Najnowsze wersje skupiają się na usprawnieniach i usuwaniu znalezionych błędów.\\
+% Taka mrówcza ale niezwykle ważna praca.
+% \end{itemize}
+% 
+% 
+% }
+%\frame{{Reklama -- przegląd możliwości}
+% \begin{itemize}
+% \item Rysowanie wykresów funkcji i zbiorów danych.
+% \item Rysowanie obiektów 2- i 3-wymiarowych.
+% \item Współrzędne kartezjańskie, sferyczne, biegunowe, parametryczne.
+% \item Dopasowanie funkcji do danych -- także funkcje nieliniowe wraz z dokładnością oszacowania parametrów (!).
+% \item Transformacje danych.
+% \item Generowanie wykresów w różnych formatach graficznych \\
+% w szczególności w postscripcie (grafika wektorowa).
+% \item Generowanie wykresów złożonych \\
+% wstawki, różne skale, wiele wykresów na jednym ...
+% \item \alert{Możliwe jest przygotowanie skryptu generującego wykres -- automatyzacja pracy.}
+% \item Animacje
+% \end{itemize}
+% }
+% %\frame{{Trochę przykładów}
+
+% \includegraphics<1>[width=8cm]{przykl_1.eps} 
+% %\onslide<2> 
+% %Przykład złożony \\
+% \includegraphics<2>[width=8cm]{przykl_2.eps} 
+% %\onslide<3>
+% %Wykres konturowy \\
+% \includegraphics<3>[width=8cm]{przykl_3.eps} 
+
+% %\onslide<4>
+% %Wykres konturowy \\
+% \includegraphics<4>[width=8cm]{przykl_4.eps} 
+
+% %\onslide<5>
+% %Wykres parametryczny \\
+% \includegraphics<5>[width=8cm]{przykl_5.eps} 
+
+% %\onslide<6>
+% %Układ biegunowy \\
+% \includegraphics<6>[width=8cm]{przykl_6.eps} 
+
+% %\onslide<7>
+% %Aproksymacje \\
+% \includegraphics<7>[width=8cm]{przykl_7.eps} 
+
+% %\onslide<8>
+% %3D \\
+% \includegraphics<8>[width=7cm]{przykl_8.eps} 
+
+% %\onslide<9>
+% %Kolory \\
+% \includegraphics<9>[width=8cm]{przykl_9.eps} 
+
+% %\onslide<10>
+% %pm3D \\
+% \includegraphics<10>[width=8cm]{przykl_10.eps} 
+
+% }
+
+%\frame{{Jak działa? Gdzie zdobyć? Literatura.}
+
+% \begin{itemize}
+% \item<1-> Sterowanie odbywa się przez \alert{konsolę} lub odpowiednie pliki wsadowe.
+% \item<2-> Program i aktualne instrukcje można pobrać ze strony: \\
+% http://www.gnuplot.info/
+% \item<3-> Użyteczne odnośniki: \\
+% http://www.fuw.edu.pl/\textasciitilde pablo/pracownia/gnuplot.pdf \\
+% http://www.knf.ifd.uni.wroc.pl/materialy/gnuplot.pdf
+% \item<4-> W programie -- przez słowo kluczowe {\color{green} help \it komenda} lub {\color{green} ? \it komenda}
+% \item<5-> W dokumentacji programu:\\
+%  gpcard.pdf\\
+%  gnuplot.$\ast$; $\ast\Rightarrow $ html, pdf, info, hlp ...\\
+% pliki demonstracyjne -- katalog demo; 
+% \item<6-> Podręczniki: 
+% \begin{itemize}
+%  \item Philipp K. Janert: Gnuplot in Action (2016)
+%  \item Lee Philips: Gnuplot 5 (2017)
+% \end{itemize}
+
+% \end{itemize}
+% }
+\frame{{Wprowadzenie }
+Praca z gnuplotem może być wykonywana
+\begin{enumerate}
+\item w trybie interaktywnym {\color{red} (nie polecam) }
+\item oparta na tworzeniu plików wsadowych {\color{red} (zalecana)}.
+\end{enumerate}
+Ta druga metoda ma tą  zaletę, że pozwala na łatwe modyfikowanie plików wsadowych i dopasowywanie ich do swoich potrzeb. \\
+\begin{itemize}
+ \item Zwykle mamy do czynienia z powtarzalnymi czynnościami. 
+ \item Dodatkową zaletą jest możliwość przygotowania (użycia) skryptów automatyzujących pracę.
+ \item Łatwość zachowania stylu (formatu) przygotowywanych wykresów.
+\end{itemize}
+
+
+}
+\frame{{Podstawowe instrukcje }
+Program uruchamiamy wpisując z linii poleceń (w terminalu) instrukcje:
+\begin{enumerate}
+\item dla sesji interaktywnej -- {\color{blue} gnuplot} - instrukcje są wpisywane zgodnie z potrzebami
+\item dla sesji opartej na pliku wsadowym -- {\color{blue} gnuplot plik1 plik2} - instrukcje znajdują się w plikach
+\item względnie przygotowujemy skrypt wykonywalny, który zawiera wywołanie programu jak i instrukcje do wykonania.
+\end{enumerate}
+}
+\frame{{Własności konsoli}
+ \begin{itemize}
+  \item Rozróżnia litery małe i duże.
+\item Polecenia posiadają (zwykle) opcjonalne parametry.
+\item Opis poleceń jest dostępny pod komendą: ``help''.
+\item Istnieją skróty poleceń np. {\color{blue} plot $\Rightarrow$ p}.
+\item Polecenia mogą zająć kilka wierszy, kontynuację w kolejnym wierszu umożliwia {\color{blue} $\backslash$} na końcu wiersza.
+\item Napisy umieszcza się pomiędzy znakami apostrofu lub cudzysłowu.
+\item Historię poleceń przewijamy $\uparrow \downarrow$.
+ \end{itemize}
+}
+% \frame{{Instrukcje edytorskie: }
+%     
+% \begin{minipage}[t]{5cm}
+% \begin{description}
+% \item[\color{blue} \^{} B \color{black}] --  wstecz o jedną pozycję
+% \item[\color{blue} \^{} F \color{black}] --  naprzód o jedną pozycję 
+% \item[\color{blue} \^{} A \color{black}]  -- na początek linii 
+% \item[\color{blue} \^{} E \color{black}] -- na koniec linii 
+% \item[\color{blue} \^{} H , DEL\color{black}] -- usuwa poprzedni znak 
+% \item[\color{blue} \^{} D \color{black}] -- usuwa bieżący znak 
+% \end{description}
+% \end{minipage}
+% \begin{minipage}[t]{5.5cm}
+% \begin{description}
+% \item[\color{blue} \^{} K \color{black}] --  usuwa od pozycji do początku linii
+% \item[\color{blue} \^{} U \color{black}] --  usuwa całą linię
+% \item[\color{blue} \^{} W \color{black}]  -- usuwa od pozycji do końca linii
+% \item[\color{blue} \^{} P \color{black}] -- przesuwa po historii poleceń wstecz
+% \item[\color{blue} \^{} N \color{black}] -- przesuwa po historii poleceń do przodu
+% \end{description}
+% \end{minipage}
+% }
+\section{Wykresy}
+\frame{{Wykresy}
+Dostępne są 3 instrukcje generujące wykresy:
+\begin{description}
+\item[{\color{blue} plot (p) }] generuje 2-wym wykres
+\item[{\color{blue} splot (sp) }] generuje 3-wym wykres
+\item[{\color{blue} replot }] powtarza rysowanie wykresów, np. po wprowadzeniu dodatkowych zmiennych
+\end{description}
+Te same polecenia służą do sporządzania wykresu danych i funkcji.
+Instrukcje {\color{blue} plot i splot} wymagają podania danych lub funkcji do wykresu oraz sposobu wykonania wykresu -- stylu punktów lub linii.
+}
+
+\frame{{Wykresy -- definiowanie danych }
+Plik danych dla gnuplota powinien być utworzony w postaci kolumny liczb (miejsca dziesiętne oddzielamy {\color{red} kropką}!). 
+
+\vspace{1cm}
+Komentarze co do zawartości pliku muszą być poprzedzone znakiem:\\ \begin{center}
+\#
+\end{center}  
+linia rozpoczynająca się od tego znaku jest ignorowana. W ten sam sposób możemy pisać komentarze w plikach wsadowych. 
+}
+
+\frame{{Wykresy -- definiowanie danych }
+Domyślnie pierwsza kolumna jest traktowana jako wartości dla "`x"' \\ 
+a druga dla "`y"'. 
+
+\vspace{1cm}
+W przypadku bardziej złożonych plików możliwy jest wybór odpowiednich kolumn poprzez instrukcje {\color{blue} using n:k} lub {\color{blue} u n:k} gdzie "`n"' i "`k"' są numerami kolumn nas interesujących. 
+
+\vspace{1cm}
+Podobnie dla przypadku 3 wym.: {\color{blue} using n:k:l} lub {\color{blue} u n:k:l}}
+
+\frame{{Wyrażenia arytmetyczne}
+\begin{itemize}
+ \item Liczby zespolone: \{1,0\}.
+\item Operator potęgowania: $\ast \ast$.
+\item Operator ``silnia'': !.
+\item ``Numer kolumny'': \$, np: p 'x.txt' u (\$1 + \$4):(\$3 **4). Co odpowiada w układzie parametrycznym $(x=x_1+x_4, y= x_3^4$).
+\item Pozostałe operatory jak w języku C: !, {\~{} }, \&, |, $\ast$, \% (reszta z dzielenia), /, +, -, ==, !=, <, <=, >, >=, \&\& (i), || (lub).
+\item Operator ? :, np. plot x < 0 ? -x : x.
+\end{itemize}
+}
+
+\frame{{Funkcje }
+Gnuplot posiada bogaty zbiór zdefiniowanych funkcji. \\
+{\color{blue} $abs(x)$} - wartość bezwzględna (też dla liczb zespolonych),\\
+{\color{blue} $acos(x)$} -  $\arccos$ - wartość w radianach, bądź stopniach, w zależności od ustawienia parametru globalnego {\color{blue} angles} \\
+{\color{blue} $acosh(x)$} - $arccosh$, {\color{blue} $asin(x)$} - $\arcsin(x)$,\\
+ {\color{blue} $asinh(x)$} -  $arsinh(x)$ - w radianach \\ 
+{\color{blue} $arg(x)$} - zwraca fazę liczby zespolonej (w radianach lub stopniach) \\
+%}
+%\frame{{Funkcje}
+{\color{blue} $ atan(x) $} - $\arctan(x)$ - w radianach lub stopniach  \\ 
+{\color{blue} $ atan2(y,x)$} - $\arctan(Re(\frac{y}{x}))$ - w radianach lub stopniach \\ 
+{\color{blue} $ atanh(x)$} - $ \arctan(x)$ - w radianach\\ 
+{\color{blue} $ceil(x) $}, {\color{blue} $floor(x) $}  - część całkowita \\ 
+{\color{blue} $\cos(x) $, $\cosh(x) $}, {\color{blue} $ \sin(x) , \sinh(x)$} , {\color{blue} $\tan(x), \tanh(x) $}, {\color{blue} $\exp(x) $}   \\ 
+}
+\frame{{Funkcje}
+
+{\color{blue} $\log(x) $} - $\log(x)$, $log10(x)$ - $\log_{10}(x)$ \\ 
+{\color{blue} $norm(x) $} -  wartość rozkładu normalnego \\ 
+{\color{blue} $rand(x) $} - liczba pseudolosowa z przedziału $ \left[ 0,1 \right] $  \\ 
+{\color{blue} $ sgn(x)$} -  $+1 $ gdy $x>0$, $-1$ gdy $x<0$, \\
+{\color{blue} $sqrt(x) $} - $\sqrt{x}$  \\ 
+ i kilka innych ...
+}
+
+
+\frame{{Funkcje i zmienne}
+Funkcje definiujemy wykorzystując wbudowane operacje:\\
+{\color{blue}
+f(x)=a*sin(x)+x**3, czyli $f(x)=a\sin(x) +x^3$\\ 
+g(x,y)=x**2 +y**3 \\
+k(x) = (x != 0) ? sin(x)/x : 1 }\\
+Natomiast zmiennym przypisujemy wartość: \\
+a=2 \\
+Tak zdefiniowaną funkcję możemy narysować \\
+{\color{blue} p f(x) w l} \\
+Istniejącą listę funkcji użytkownika możemy uzyskać poprzez polecenie: {\color{blue} show functions}\\
+oraz listę zmiennych {\color{blue} show variable}\\
+liczba $\pi$ jest zmienną predefiniowaną: {\color{blue} pi}.
+}
+
+\frame{{ Wykresy -- linie}
+Dostępnych jest bardzo wiele stylów linii: 
+\begin{figure}
+	\centering
+	\includegraphics[angle=-90,scale=0.35]{test.eps}
+% test.eps: 300dpi, width=4.27cm, height=6.10cm, bb=50 50 554 770
+%	\caption{Style grafiki i linii}
+	\label{fig:linie}
+\end{figure}
+
+}
+
+
+\frame{{Wykresy -- linie }
+
+Zatem instrukcja, która wygeneruje wykres na podstawie pliku danych ma postać \\
+{\color{blue} p "`dane.dat"' w l } \\
+aby dodatkowo zdefiniować rodzaj lini należy zastosować: \\
+{\color{blue} lt (nr)} - rodzaj linii i  {\color{blue} lw (nr)} - grubość linii \\ zatem instrukcja nasza ma postać:
+{\color{blue} p "`dane.dat"' w l lt 1 lw 2}  \\
+Zamiast wpisywać te wartości za każdym razem można zdefiniować interesujący nas styl linii:\\
+{\color{blue} set linestyle 1 lt 2 lw 2 } \\
+Wtedy odwołanie będzie miało postać:
+{\color{blue} plot sin(x) ls 1} \\
+
+}
+
+% \frame{{Wykresy -- linie}
+% \begin{minipage}[t]{5cm}
+% \begin{figure}
+% 	\centering
+% 	\includegraphics[width=5cm]{przyklad_1.eps}
+% 	\caption{przykład 1}
+% \end{figure}
+% \end{minipage}
+% \begin{minipage}[t]{5cm}
+% \begin{figure}
+% 	\centering
+% 	\includegraphics[width=5cm]{przyklad_2.eps}
+% 	\caption{przykład 2}
+% \end{figure}
+% \end{minipage}
+% }
+
+
+\frame{{Wykresy -- punkty }
+Podobnie można zrobić dla punktów. \\
+{\color{blue} p "`dane.dat"' w p } \\
+Definicje rodzaju i wielkości punktów otrzymujemy wpisując: \\
+{\color{blue} pt (nr)} - rodzaj punktu i  {\color{blue} ps (nr)} - wielkość punktów \\ zatem instrukcja nasza ma postać: \\
+{\color{blue} p "`dane.dat"' w p pt 1 ps 1}  \\
+Uwaga należy stosować umiarkowane wartości parametru {\color{blue} ps}
+
+
+}
+
+\frame{{Wykresy -- punkty}
+\begin{minipage}[t]{5cm}
+\begin{figure}
+	\centering
+	\includegraphics[width=5cm]{przyklad_3.eps}
+	\caption{przykład 3}
+\end{figure}
+\end{minipage}
+\begin{minipage}[t]{5cm}
+\begin{figure}
+	\centering
+	\includegraphics[width=5cm]{przyklad_4.eps}
+	\caption{przykład 4}
+\end{figure}
+\end{minipage}
+}
+\begin{frame}
+\frametitle{Style linii}
+
+Dostępne rodzaje prezentacji danych:
+
+\begin{tabular}{lll}
+\hline
+lines & points & linespoints \\
+impulses & dots & steps \\
+fsteps & histeps & errorbars \\
+xerrorbars & yerrorbars & xyerrorbars \\
+boxes & boxerrorbars & boxxyerrorbars \\
+financebars & candlesticks & vector \\
+\hline
+\end{tabular}
+
+\end{frame}
+
+
+
+\frame{{Zakresy}
+Zakres zmiennej podajemy wykorzystując nawiasy kwadratowe {\color{blue} []}. \\
+Nawiasy te mogą się odnosić do każdej z osi wykresu z zachowaniem kolejności:\\
+$[x_1:x_2] [y_1:y_2] [z_1:z_2]$ \\
+Zakresy zmiennych podajemy wykorzystując ``:'', z tym że możliwe jest:\\
+\begin{itemize}
+ \item podanie pełnego zakresu zmiennych: [-3:5]
+\item domyślny początek lub koniec zmiennych: [2:] lub [:4]
+\item określenie zakresu tylko jednej z osi: [:] [3:] [2:4]
+\end{itemize}
+}
+
+\frame{{Wiele wykresów}
+Wykres kilku funkcji:\\
+{\color{blue} p [0:2*pi] x w l, sin(x) w l, cos(x) w l  } \\
+
+W jednej linii oddzielone przecinkami wypisujemy funkcje, które mają być na tym samym wykresie.
+
+}
+
+\frame{{Próbkowanie}
+\begin{itemize}
+ \item Wykresy są rysowane linią łamaną z {\color{blue}   ``samples'' } wierzchołkami. \\
+\alert{ Sprawdzić jak wygląda wykres funkcji tangens!} 
+\item Wartość tego parametru możemy sprawdzić: {\color{blue}   ``show samples'' }
+\item Zmienić ustawienia: {\color{blue}   ``set samples 500'' }
+\item Zmienna ta jest także wykorzystywana przy interpolacji.
+\end{itemize}
+}
+
+\frame{{Wykresy biegunowe i parametryczne}
+\begin{itemize}
+ \item Współrzędne biegunowe: \\
+ {\color{blue}   set polar \\
+ p [0:4*pi] t  \\
+ p [0:4*pi] t, 2*t }
+ \item Wykresy parametryczne \\
+ {\color{blue}   set parametric \\
+ p [0:2*pi] sin(t), cos(t)  \\
+ p [0:4*pi] t*sin(t), t*cos(t) }
+ \item Powrót do współrzędnych kartezjańskich zapewnia: \\
+ {\color{blue}   unset polar \\
+unset parametric  }
+\item Domyślną zmienną zależną jest x dla wykresów kartezjańskich \\ y = f(x) i kąt t dla wykresów biegunowych, r = f(t).  \\ Dla wykresów parametrycznych niezależne jest t 
+natomiast rysowane funkcje to x(t) i y(t) -- para funkcji.
+\end{itemize}
+
+}
+
+\frame{{Skala logarytmiczna}
+Zależności potęgowe lub wykładnicze najwygodniej jest obserwować w skalach logarytmicznej lub półlogarytmicznej $\rightarrow$ otrzymujemy wykres prostej.\\
+\begin{itemize}
+ \item Logarytmiczna oś ``x'', podstawa 10:\\
+{\color{blue} set logscale x}
+\item Logarytmiczna oś ``y'', podstawa 2:
+{\color{blue} set logscale y 2 }
+\item Logarytmiczne osie ``x'' i ``y'':
+{\color{blue} set logscale xy } 
+\item Powrót do współrzędnych kartezjańskich:
+{\color{blue} unset logscale xy}
+\end{itemize}
+}
+
+\frame{{Wykresy danych}
+Opcje dla funkcji w większości są dostępne przy wykonywaniu wykresów zbiorów danych.
+\begin{itemize}
+ \item Pliki z danymi mogą mieć dowolną liczbę kolumn: \\
+{\color{blue} p 'dane.dat' u 7:2 }
+\item Pliki z danymi mogą zawierać dowolną liczbę "`bloków"' danych;
+\item Bloki oddziela się od siebie pustymi wierszami. 
+\item Do bloków odwołujemy się opcją index: \\
+{\color{blue} p 'dane.dat' index 2:4} 
+\item Numeracja bloków zaczyna się od 0. 
+\item Wykres bloków 0,3,6,9,12: \\
+{\color{blue} p 'dane.dat' index 0:12:3}
+\item Do samodzielnego sprawdzenia opcja {\color{blue} every}.
+\end{itemize}
+}
+
+\frame{{Manipulowanie danymi -- {\color{blue} using}}
+\begin{itemize}
+ \item  Wykres kolumny 3 względem 1: {\color{blue} p [:] 'dane.dat' u 1:3 }
+\item Wykres kolumny 2 względem x = 0, 1, ...: {\color{blue} p 'dane.dat' u 0:1}
+\item  Wykres sumy kolumn 2 i 3 względem kol. 1: \\ 
+{\color{blue} p 'dane.dat' u 1:(\$2 + \$3)} \\
+\$n oznacza liczbę odczytaną z n-tej kolumny
+\item Transformacja danych: {\color{blue} p 'dane.dat' u 1:(log(abs(\$2)))}
+\item Filtrowanie danych: {\color{blue} p 'dane.dat' u 1:(\$2 < 10 ? \$2 : 1/0)}
+\end{itemize}
+}
+
+\frame{{Interpolacja i ekstrapolacja}
+\begin{itemize}
+ \item Aproksymacja danych krzywą ciągłą: \\
+{\color{blue} plot 'dane.dat' u 1:2:(1.0) smooth acsplines }
+\item Trzeci parametr opcji {\color{blue} using} określa stopień wygładzania danych; im jest mniejszy, tym wykres będzie słabiej "`przyciągany"' do punktów wykresu.
+\item Interpolacja danych krzywą ciągłą: \\ 
+{\color{blue} plot 'dane.dat' smooth csplines}
+\end{itemize}
+}
+
+
+\begin{frame}{Wykresy -- opis }
+
+\begin{minipage}[t]{5cm}
+Często (w zasadzie zawsze) konieczne jest umieszczenie oznaczeń osi i tytułu wykresu. 
+xoff, yoff - przesunięcie o wielokrotność szerokości liter\\
+Podobnie instrukcje dla osi y
+\end{minipage}
+\begin{minipage}[t]{5cm}
+\begin{figure}
+	\centering
+	\includegraphics[width=5cm]{przyklad_5.eps}
+%	\caption{przyklad 5}
+\end{figure}
+\end{minipage}
+
+Pomocne są tu instrukcje: \\
+ {\color{blue} set xlabel \{"`<label>"'\} \{<xoff>\}\{,<yoff>\} \{"`<font>\{,<size>\}"'\} \\
+      show xlabel \\
+}
+
+\end{frame}
+
+\begin{frame}{Wykresy -- opis}
+
+Tytuły \\
+{\color{blue} set title \{"`<title-text>"'\} \{<xoff>\}\{,<yoff>\} \{"`<font>,\{<size>\}"'\} \\
+}
+\begin{minipage}[t]{5cm}
+Musi być aktywna opcja pokazująca legendę: \\
+{\color{blue} set key} \\
+Instrukcje tą można skrócić do samego "`t"'. \\
+Umieszczamy ją w linii generującej wykres:
+\end{minipage}
+\begin{minipage}[t]{5cm}
+\begin{figure}
+	\centering
+	\includegraphics[width=5cm]{przyklad_6.eps}
+%	\caption{przyklad 6}
+\end{figure}
+\end{minipage}
+
+
+{\color{blue} p sin(x) t "`wykres funkcji"' w l lt 6 lw 2} \\
+\end{frame}
+
+\begin{frame}{Wykresy -- tytuły}
+Dodatkowe instrukcje dotyczące tytułów wykresów:\\
+{\color{blue}
+set key \{  left | right | top | bottom | outside | below \\
+ \hspace{1cm}              | <position>\} \\
+ \hspace{1cm}             \{Left | Right\} \{\{no\}reverse\} \\
+ \hspace{1cm}             \{samplen <sample length>\} \{spacing <vertical spacing>\} \\
+ \hspace{1cm}             \{width <width increment>\} \\
+ \hspace{1cm}             \{title "<text>"\} \\
+ \hspace{1cm}             \{\{no\}box \{ \{linestyle | ls <line style>\} \\
+ \hspace{1cm}                        | \{linetype | lt <line type>\} \\
+ \hspace{2cm}                          \{linewidth | lw <line width>\}\}\} \\
+      set nokey \\
+      show key \\
+}
+\end{frame}
+
+\begin{frame}{Wykresy -- tytuł}
+\onslide<1->{
+Położenie tekstu na stronie: left, right, top, bottom, outside i below \\
+Położenie wewnątrz pudełka: Left lub Right \\
+Domyślne ustawienia: \\
+right, top, Right, noreverse, samplen 4, spacing 1.25, title "", nobox \\}
+\vspace{0.5cm}
+\onslide<2>
+Podobnie możemy zastosować do etykiet: \\
+{\color{blue}  set label \{<tag>\} \{"`<label text>"'\} \{at <position>\} \\
+ \hspace{1cm}               \{<justification>\} \{\{no\}rotate\} \{font "`<name><,size>"'\} \\
+\hspace{1cm}      set nolabel \{<tag>\} \\
+\hspace{1cm}      show label \\
+}
+Położenie można zdefiniować we współrzędnych wykresu {\color{blue} first}, ale znacznie wygodniej zrobić to względem wykresu {\color{blue} graph} \\
+{\color{blue} set label "`y=x"' at 1,2 } lub \\ 
+{\color{blue} set label "`S"' at graph 0.5,0.5 center font "`Symbol,24"'}
+\end{frame}
+
+\frame{{Znaczniki osi}
+Główne znaczniki osi:\\
+{\color{blue}  set xtics 5 (... ,-5, 0, 5, ...) \\
+set ytics 0 2 10 (0, 2, 4, 6, 8, 10) \\
+set log x; set xtics 1,100,1e6 \\
+$(1, 10^2, 10^4, 10^6)$
+}
+
+Znaczniki pomocnicze (10 przedziałów, 9 znaczników): \\
+{\color{blue}  set mxtics 10 }
+
+Zastępowanie znaczników: \\
+{\color{blue} set xtics ("`pon"' 1, "`wt"' 2, "`sr"' 3, "`czw"' 4) }
+}
+\frame{{Znaczniki osi}
+Zmiana formatu znaczników:
+{\color{blue} set format y "`$10\hat{}${ \%L}"'} w zapisie potęgowym \\
+
+Ogólnie {\color{blue} set format} + nazwa osi (X, Y, Z, XY, X2, Y2) + definicja formatu\\
+\% całkowita długość.dokładność \\ 
+typ ('f', 'e', 'E', 'g', 'x', 'X', 'o', 't', 'l', 's', 'T', 'L', 'S', 'c', 'P') \\
+domyślnie przyjęty jest 'g'.\\
+'t', 'l', 'T', 'L' -- stosowane są w skalach logarytmicznych, 
+}
+\frame{{Dodatkowe strzałki i linie}
+Do umieszczania dodatkowych strzałek i linii służy polecenie {\color{blue} set arrow}.
+\begin{itemize}
+ \item Strzałka nr 1 od punktu (1, 2) do (1, 3): \\
+{\color{blue} set arrow 1 from 1,2 to 1,3 }
+\item Linia nr 3, gruba na 2pt, od (1, 2.5) do (1, 3): \\
+{\color{blue} set arrow 3 from 1,2.5 to 1,3 nohead lw 2 }
+ \item Usunięcie wszystkich strzałek i linii: \\
+{\color{blue} unset arrow }
+\item Usunięcie strzałki nr 3:
+{\color{blue} unset arrow 3 }
+\item Wyświetlenie wszystkich strzałek i linii: \\
+{\color{blue} show arrow }
+\end{itemize}
+
+}
+
+\begin{frame}{ Wykresy -- kilka na jednej stronie}
+Kilka wykresów  \\
+{\color{blue} set multiplot \\
+      set nomultiplot} \\
+Przykład: \\
+{ \color{blue} 
+      set multiplot \\
+      set size 0.4,0.4 \\
+      set origin 0.1,0.1 \\
+      plot sin(x) \\
+      set origin 0.5,0.5 \\
+      plot cos(x) \\
+      set nomultiplot \\
+}
+\end{frame}
+\begin{frame}{Wykresy -- kilka}
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm]{przyklad_7.eps}
+%	\caption{przyklad 6}
+\end{figure}
+\end{frame}
+\begin{frame}{Wykresy -- automatyzacja}
+
+{\color{blue} 
+\#! /usr/bin/gnuplot \\
+reset \\
+set term postscript eps color \\
+set output "`przyklad 7.eps"' \\
+\vspace{0.5cm}
+\noindent       set multiplot \\
+      set size 0.4,0.4 \\
+      set origin 0.1,0.1 \\
+      plot sin(x) \\
+      set origin 0.5,0.5  \\
+      plot cos(x) \\
+      set nomultiplot  \\ }
+\end{frame}
+
+\frame{
+\frametitle{Wykresy -- plik wyjściowy }
+
+Generowanie wykresów w postaci plików wymaga określenia następujących parametrów: \\
+\begin{itemize}
+\item nazwy pliku
+\item rodzaju pliku.
+\end{itemize}
+\begin{block}{Uwaga}
+{\large Gnuplot nie rozpoznaje typu pliku po jego rozszerzeniu! } \\
+Sami musimy zadbać o zgodność rozszerzenia z zawartością!
+\end{block}
+}
+
+\subsection{Zapis wyników}
+\frame{
+\frametitle{Wykresy -- plik wejściowy}
+Wszystkie instrukcje ustawiające parametry pracy gnuplota są wprowadzane komendą: \\
+ \alert{ set ''nazwa zmiennej i parametry''} \\
+Nazwę pliku wyjściowego definiujemy następująco: \\
+\alert{ set output ''nazwa.roz''} \\
+Rodzaj i format wyjścia definiujemy następująco (najistotniejsze): \\
+\alert{ epslatex, latex, linux, pdf, png, postscript, \\ pslatex, pstex, pstricks, windows, x11.}
+
+}
+
+\frame{
+\frametitle{ Postscript}
+Dostępne opcje:\\
+\alert{
+ set terminal postscript \{<mode>\} \{enhanced | noenhanced\} \\
+  \hspace{3cm}                            \{color | monochrome\} \{solid | dashed\} \\
+   \hspace{3cm}                           \{<duplexing>\} \\
+  \hspace{3cm}                           \{''<fontname>''\} \{<fontsize>\} \\
+}
+
+<mode> przyjmuje wartości \alert{ landscape, portrait, eps, default} \\
+<duplexing> \alert{ defaultplex, simplex or duplex} - druk dwustronny \\
+''<fontname>'' nazwa czcionki; <fontsize> rozmiar \\
+\alert{ default} = \alert{ landscape, monochrome, dashed, defaultplex, noenhanced, "Helvetica", 14pt.} \\
+eps (Encapsulated PostScript) -  PostScript + dodatkowe informacje pozwalające na łatwiejsze importowanie plików. \\
+W trybie {\bf eps} cały wykres jest zmniejszany dwukrotnie.
+
+}
+
+\frame{{Zapis pliku}
+Zapisanie zmiennych, funkcji, bieżących
+parametrów rysunku i {\bf \alert{ostatniego}} polecenia plot: \\
+{\color{blue} save 'nazwa\_pliku'. }
+
+Zapis zmiennych / funkcji / parametrów: \\
+{\color{blue} save functions 'nazwa\_pliku' \\
+save var 'nazwa\_pliku' \\
+save set 'nazwa\_pliku' }
+
+Odczytanie tego pliku: \\
+{\color{blue} load 'nazwa\_pliku' }
+
+Zapisanie historii sesji: \\
+{\color{blue} history 'nazwa\_pliku' }
+}
+
+\section{Wykresy 3D}
+\frame{
+\frametitle{Wykresy 3 wymiarowe}
+Wykresy 3 wymiarowe tworzy się w sposób zbliżony do 2-wym.\\
+\begin{block}{Instrukcja}
+ splot \{ zakres \} \\
+                 funkcja | '' dane '' \{ parametry danych \}  \\
+                 \{ tytuł \} \{with styl\}
+                 \{, \{definitions,\} <function> ...\}
+\end{block}
+\begin{block}{Dopasowanie rzutu}
+set view \{ <rot\_x>\{,\{<rot\_z>\}\{,\{<scale>\}\{,<scale\_z>\}\}\} | map \} \\
+set view 60, 30, 1, 1 \\
+           set view ,,0.5
+\end{block}
+
+
+}
+\frame{
+\frametitle{Wykresy 3 wymiarowe}
+\begin{block}{Nałożenie siatki}
+set contour \{base | surface | both\} \\
+           unset contour \\
+           base -- linie są nakładane na płaszczyznę XY, surface -- na wykresie.
+\end{block}
+\begin{example}
+unset surface \\
+           set contour \\
+           set cntrparam ... \\
+           set term table \\
+           set out 'filename' \\
+           splot ... \\
+           set output \\
+          set term <whatever> \\
+           plot 'filename' \\
+\end{example}
+}
+\frame{
+\frametitle{Wykresy 3 wymiarowe+ 4 wymiar}
+\begin{block}{Instrukcja}
+set pm3d \\
+           set pm3d \{ \\
+                      \{ at <bst combination> \} \\
+                      \{ scansautomatic | scansforward | scansbackward \} \\
+                      \{ flush \{ begin | center | end \} \} \\
+                      \{ ftriangles | noftriangles \} \\
+                      \{ clip1in | clip4in \} \\
+                      \{ corners2color \{ mean|geomean|median|c1|c2|c3|c4 \} \} \\
+                      \{ hidden3d <linestyle> | nohidden3d \} \\
+                      \{ implicit | explicit \} \\
+                      \{ map \} \\
+                    \} \\
+           show pm3d \\
+           unset pm3d \\
+\end{block}
+}
+\frame{
+\frametitle{Wykresy 3 wymiarowe}
+\begin{example}
+set pm3d at s hidden3d 100 \\
+           set style line 100 lt 5 lw 0.5 \\
+           unset hidden3d \\
+           unset surf \\
+           splot x*x+y*y \\
+\end{example}
+}
+
+\frame{
+\frametitle{Wykresy 3 wymiarowe}
+{
+\frametitle{pm3d - przykład}
+
+\includegraphics[width=8cm]{przykl_11.eps}
+}
+}
+\frame{{Struktura danych}
+W przypadku wykresów 3D należy wskazać  podział pomiędzy liniami $\rightarrow$ pusta linia w danych.
+
+Jeżeli nie mają być rysowane poziome linie siatki to należy umieścić dwie puste linie pomiędzy danymi.
+
+Do wykresu macierzy można wykorzystać format "`{\color{blue} matrix}"' \\
+trzy pierwsze kolumny są interpretowane jako współrzędne, a czwarta jest przedstawiana kolorem.
+
+}
+
+% \section{Dopasowanie funkcji}
+
+% \frame{{Fitowanie}
+
+% Załóżmy, że mamy zbiór danych $\{ (x_i,y_i,\varepsilon_i )\} $, $ i = 1,...,N$, gdzie $\varepsilon_i$ jest niepewnością
+% wartości $y_i$, oraz funkcja $f(x;a_1,...,a_k)$. \\ 
+% Celem polecenia {\bf fit} jest minimalizacja
+% $$
+% \chi^2(\overline{a})=\sum_{i=1}^N \left[ \frac{y_i-f(x_i;\overline{a})}{\varepsilon_i} \right]^2
+% $$
+% względem $\overline{a} = a_1,...,a_k$.
+% }
+
+% \frame{
+% \frametitle{Dopasowanie funkcji}
+% Gnuplot oferuje moduł dopasowujący funkcje do danych!\\
+% Składnia:\\
+% set fit \{logfile \{''<filename>''\}\} \{\{no\}errorvariables\} \\
+%            unset fit \\
+%            show fit \\
+% \begin{block}{Dopasowanie funkcji}
+
+% fit \{[xrange] \{[yrange]\}\} <function> '<datafile>' \\
+%                \{datafile-modifiers\}
+%                via '<parameter file>' | <var1>\{,<var2>,...\}
+% \end{block}
+% Moduł ten jest oparty na metodzie najmniejszych kwadratów nieliniowego algorytmu Marquardt-Levenberga \\
+% {\it http://pl.wikipedia.org/wiki/Algorytm\_Levenberga-Marquardta}
+% }
+% \frame{
+% \frametitle{Dopasowanie funkcji}
+
+% \begin{example}
+% set fit errorvariables \\
+%             fit f(x) 'datafile' using 1:2 via a, b \\
+%            print ''error of a is:'', a\_err \\
+%             set label 'a=\% 6.2f', a, '+/- \% 6.2f', a\_err \\
+%             plot 'datafile' using 1:2, f(x) \\
+% \end{example}
+% }
+% \frame{
+% \frametitle{Dopasowanie funkcji}
+% \begin{example}
+% f(x) = a*x**2 + b*x + c \\
+%            g(x,y) = a*x**2 + b*y**2 + c*x*y \\
+%            FIT\_LIMIT = 1e-6 \\
+%            fit f(x) 'measured.dat' via 'start.par' \\
+%            fit f(x) 'measured.dat' using 3:(\$7-5) via 'start.par' \\
+%            fit f(x) './data/trash.dat' using 1:2:3 via a, b, c \\
+%            fit g(x,y) 'surface.dat' using 1:2:3:(1) via a, b, c \\
+% \end{example}
+% }
+% \frame{{Składnia}
+
+% W przypadku funkcji {\color{blue} \bf fit} konieczna jest specyfikacja czy dane zawierają informację o błędzie. 
+
+% Wynika to z faktu, że jako zmienna 'x' może być wykorzystany numer wiersza. Tym samym konieczne jest podanie czy błąd jest zawarty w danych. Przyjmuje się, że błąd dotyczy przedostaniej zmiennej 'z'.
+
+% Ze względu na wymóg kompatybilności z poprzednimi wersjami słowo kluczowe {\color{blue} \bf 'error'} nie jest wymagane.
+
+% Domyślna kolejność zmiennych:
+% \begin{tabular}{ll}
+% z  & \# 1 niezależna zmienna (nr linii) \\
+% x:z & \# 1 niezależna zmienna (1 kolumna) \\
+% x:z:s & \# 1 niezależna zmienna \\
+% x:y:z:s & \# 2 niezależne zmienne \\
+% x1:x2:x3:z:s & \# 3 niezależne zmienne \\
+% x1:x2:x3:...:xN:z:s & \# N niezależnych zmiennych 
+% \end{tabular}
+% }
+
+% \frame{
+
+% \begin{example}
+% \tt
+% f(x) = a*x**2 + b*x + c \\
+% set fit limit 1e-6 \\
+% fit f(x) 'measured.dat' via a, b, c \\
+% fit f(x) 'measured.dat' using 1:2:3 yerror via a, b, c \\
+% fit f(x) 'measured.dat' using 1:2 noerror via a, b, c \\
+% \end{example}
+
+% }
+
+% \frame{{Istotne informacje}
+% \begin{description}
+%  \item[WSSR] Weighted sum of squares of residuals = $\chi^2$
+% \item[FIT\_LIMIT] dokładność dopasowania
+% \item[FIT\_MAXITER] ilość iteracji
+%  \end{description}
+
+% }
+% \frame{{Ocena jakości dopasowania}
+% \begin{description}
+%  \item[ndf] ilość punktów pomiarowych (stopni swobody),
+% \item[stdfit]
+% \begin{itemize}
+%  \item jeśli dane miały oszacowany błąd pomiaru, nasza teoria jest poprawna i zachodzą inne warunki stosowalności polecenia fit,
+% to wartość stdfit powinna być bliska 1
+% \item Jeśli nie znamy niepewności pomiaru, to stdfit daje wyobrażenie o średniej wartości tego błędu (o ile teoria jest poprawna etc.)
+% \end{itemize}
+% \item[Macierz korelacji] w przypadku idealnym wyrazy pozadiagonalne znikają
+% \item[Wyniki] jest podawany z oszacowanym błędem bezwzględnym i względnym.
+
+%  \end{description}
+% }
+% \frame{{Możliwe trudności}
+% \begin{itemize}
+%  \item Zła teoria (nie ta funkcja);
+% \item Złe wartości początkowe parametrów;
+% \item Nieprawidłowe wartości niepewności pomiarowych;
+% \item Silne korelacje parametrów np. $f(x)=a\exp(\frac{x-b}{c})$;
+% \item Poszukiwane parametry mają różne rzędy wielkości.
+% \end{itemize}
+% }
+% \frame{{Przykład}
+% \begin{center}
+%  \includegraphics[scale=0.5]{fit.eps}
+% \end{center}
+% % fit.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=50 50 410 302
+% }
+% \section{Pętle}
+% \frame{{Pętle}
+% Od wersji 4.6 istnieje możliwość zastosowania pętli i prostych iteracji oraz intrukcji warunkowych wewnątrz poleceń {\color{blue} \bf plot} i {\color{blue} \bf set}.
+
+% Instrukcje te występują jako: {\color{blue} \bf if, while, do, for}.
+
+% \vspace{1cm}
+
+% Instrukcja {\color{blue} \bf for} występuje w dwóch wersjach:
+
+% \texttt{
+% plot for [<variable> = <start> : <end> {:<increment>}] \\
+% plot for [<variable> in ''string of words'']
+% }
+% }
+
+% \frame{{Przykłady}
+
+% Typowa iteracja\\
+% Rysujemy funkcję sin(x) dla różnych częstości:\\
+% \texttt{ plot for [i=1:3] sin(i*x)}
+
+% \vspace{0.5cm}
+
+% Na wzór Basha pętla bprzebiega po liście parametrów: \\
+% \texttt{plot for [{\bf pliki} in "praca energia"] {\bf pliki}."dat" title {\bf pliki}}
+
+% \vspace{0.5cm}
+
+% {\bf Uwaga}
+
+% Iteracja kończy się na przecinku albo końcu komendy.
+
+% Np. \texttt{plot for [i=1:3] j=i, sin(j*x)}\\
+% Narysuje jedną funkcję dla i=3.
+% }
+% %\end{document}
+% \section{Wtyczka c++}
+% \lstset{language=C, showstringspaces=false,
+%   basicstyle=\footnotesize,
+%   keywordstyle=\bfseries\color{green!40!black},
+%   commentstyle=\itshape\color{purple!40!black},
+%   identifierstyle=\color{blue},
+%   stringstyle=\color{orange}}
+% \begin{frame}[fragile]
+% \begin{lstlisting}
+% #include <iostream>
+% #include <fstream>
+% #include <sstream>
+% #include <vector>
+% #include "gnuplotpp.h"
+
+% using namespace std;
+% using namespace gnuplotpp;
+
+% int main( void ){
+
+%  singleplot g;
+
+%  g.set("term png" );
+%  g.set() << gpset( "output", "\"demo1.png\"" ) << endl;
+
+%  g.x.label( "x axis" ).format( "%03.2f" ).tics(0.2).mtics(.05);
+%  g.y.label( "y axis" );
+
+% \end{lstlisting}
+% \end{frame}
+% \begin{frame}[fragile]
+% \begin{lstlisting}
+
+
+%  g.label( "single plot example", 
+%                          coord( "graph 0.5", "graph 0.5" ) );
+
+%  g.arrow( coord( "graph 0.5", "graph 0.5" ), 
+%                                coord( "graph 1", "graph 1" ) );
+
+%  g.plotfile( "data.dat", 1, 2 )<< " t 'data'" << " pt 1" ;
+  
+%  g.plotfunc( "x" ) ;
+
+%  g.save( "demo1.gp" ).exec();
+% \end{lstlisting}
+% \end{frame}
+
+% \frame{ 
+% \begin{figure}
+%  \centering
+%  \includegraphics[scale=0.5]{./demo1.eps}
+%  % demo3.png: 640x480 pixel, 72dpi, 22.58x16.93 cm, bb=0 0 640 480
+% \end{figure}
+% }
+
+% \begin{frame}[fragile]
+% \begin{lstlisting}
+% #include <iostream>
+% #include <fstream>
+% #include <sstream>
+% #include <vector>
+% #include "gnuplotpp.h"
+
+% using namespace std;
+% using namespace gnuplotpp;
+
+% int main( void ){
+
+% 	multiplot g(3);
+
+% 	g.setsize(1.5,1);
+
+% 	// one example for set command -- stream style
+% 	//   line need to be terminated
+% 	g.buf() << gpset( "term", "png" ) << endl; 
+
+% 	// another example for set command -- function style
+% 	//   no temination of the line needed
+% 	g.set( "output \"demo2.png\"" );
+
+% \end{lstlisting}
+% \end{frame}
+% \begin{frame}[fragile]
+% \begin{lstlisting}
+% 	// axis formatting can be done as this
+% 	g.x.range( -5, 5 ).format( "%g" ).tics(1).label("x label");
+
+% 	g.set( "multiplot" );
+
+% 	// this is global label that is persistent to all graphs
+% 	g.label( "This is global label",  coord( "graph 0.5", "0.1" ) );
+
+% 	// this is local label 
+% 	multiplot::iterator it=g.begin();
+% 	for( ; it!=g.end() ; it++ )
+% 		it->label() <<  "\"plot " << it-g.begin() << "\" at " 
+%                 << coord( "graph 0.5", "0.5" ) << endl;
+
+% 	g[0].x.format( "%4g" );
+% 	g[0].x.range( 0., 1. );
+% 	//	cerr << "g[0].str(): "<< g[0].buf().str() << endl;
+% \end{lstlisting}
+% \end{frame}
+
+% \begin{frame}[fragile]
+% \begin{lstlisting}
+ 
+% 	for( it=g.begin(); it!=g.end() ; it++ ){
+% 		it->buf() << gpset( "origin", coord(0.5*(it-g.begin()), 0 ) ) 
+% 							  << endl;
+% 		it->buf() << gpset( "size", coord(0.5,1) ) << endl;
+% 		it->plotfunc() <<  "sin(" << it-g.begin() << "*x)+" 
+% 									 << "cos(" << it-g.begin()+2 << "*x)";
+% 	}
+
+% 	g.postset() << gpset( "nomulti" ) << endl;
+
+% 	g.save( "demo2.gp" ).exec();
+ 
+% }
+
+% \end{lstlisting}
+% \end{frame}
+
+% \frame{ 
+% \begin{figure}
+%  \centering
+%  \includegraphics[scale=0.3]{./demo2.eps}
+%  % demo3.png: 640x480 pixel, 72dpi, 22.58x16.93 cm, bb=0 0 640 480
+% \end{figure}
+% }
+
+
+% \begin{frame}[fragile]
+% \begin{lstlisting}
+% #include <iostream>
+% #include <fstream>
+% #include <sstream>
+% #include <vector>
+% #include "gnuplotpp.h"
+
+% using namespace std;
+% using namespace gnuplotpp;
+
+% int main( void ){
+
+%  gptable g(3,3);
+
+%  // cerr << g.set().str() << endl;
+%  // exit(1);
+
+%  g.set() << gpset( "term", "png" ) << endl 
+% 	 << gpset( "output", "\"demo3.png\"" ) << endl;
+
+% \end{lstlisting}
+% \end{frame}
+% \begin{frame}[fragile]
+% \begin{lstlisting}
+
+%  g.setsize( 1,1 );
+
+%  g.x.range( -5, 5 );
+
+%  for( int i=0; i<g.xsize(); i++ )
+%    for( int j=0; j<g.ysize(); j++ ){
+%       g[i][j].plotfunc() <<  "sin(" << i+1 << "*x)+" 
+% 				<< "cos(" << j+1 << "*x)";
+%    }
+
+%  // cerr << g << "######" << endl;
+
+%   g.save( "demo3.gp" ).exec();
+ 
+% }
+% \end{lstlisting}
+% \end{frame}
+
+% \frame{ 
+% \begin{figure}
+%  \centering
+%  \includegraphics[scale=0.5]{./demo3.eps}
+%  % demo3.png: 640x480 pixel, 72dpi, 22.58x16.93 cm, bb=0 0 640 480
+% \end{figure}
+% }
+
+\end{document}
+
+

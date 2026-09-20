@@ -1,0 +1,23 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[T1]{fontenc}
+
+\title{Programy użytkowe \\ Lista 8}
+\date{}
+\usepackage{polski}
+\begin{document}
+\maketitle
+Jeśli skrypt do rysowania spirali z poprzedniej listy nie przyjmuje argumentu, określającego nazwę pliku wynikowego, dodaj go.
+\begin{enumerate}
+    \item Otwórz terminal. Używając poleceń \texttt{cd} przejdź do folderu, który zawiera rozwiązania z poprzedniej listy.
+    \begin{itemize}
+        \item Wygeneruj trzy wykresy ze spiralami o różnych nazwach plików,
+        \item przy pomocy \texttt{mkdir} utwórz nowy katalog na te wykresy,
+        \item używając \texttt{copy} lub \texttt{mv} (zwróć uwagę na różnicę!) przenieś je do nowo utworzonego katalogu,
+        \item jeśli to jeszcze konieczne, usuń wykresy z pierwotnego miejsca.
+    \end{itemize}
+    \item Napisz skrypt w bashu, który wykonuje powyższe kroki dla 10 lub więcej plików (załóżmy, że skrypt jest uruchamiany w tym samym folderze, co skrypt gnuplota).
+    \item Zmodyfikuj powyższy skrypt tak, aby rysował $k$ plików, pierwszy z jednym przebiegiem spirali, drugi z dwoma, a $k$-ty z $k$ przebiegami. Niech $k$ będzie podawane jako argument skryptu.
+\end{enumerate}
+
+\end{document}

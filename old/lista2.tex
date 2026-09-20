@@ -1,0 +1,74 @@
+\documentclass[12pt, letterpaper, fleqn, leqno]{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[T1]{fontenc}
+
+\usepackage{polski}
+%\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[inline]{enumitem}
+\usepackage{setspace}
+\onehalfspacing
+
+\title{Programy użytkowe \\ Lista 2}
+\author{ }
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    % \item Listy tworzymy przy użyciu polecenia
+    % \begin{verbatim}
+    %     \begin{enumerate}
+    %         \item ...
+    %     \end{enumerate}
+    % \end{verbatim}
+    % Wszystko, co następuje po \verb|\item| należy do danego punktu. Rozwiązania tej listy umieść w kolejnych punktach (jeśli ma to zastosowanie). 
+    % \item
+    \item Wprowadź równanie w trybie wyróżnionym, a następnie nadaj mu etykietę (\verb|\label|) oraz użyj odniesienia do tego równania(\verb|\ref|, lub przy użyciu pakietu \verb|amsmath| polecenia \verb|\eqref|) w tekście przed lub po równaniu. Załaduj pakiet \verb|hyperref| i sprawdź efekt.
+    \item Nie tylko do równań możemy tworzyć odnośniki. Wstaw do dokumentu obrazek i nadaj mu etykietę. Odwołaj się do niego w tekście poniżej.
+    \item Równania wielolinijkowe możemy (między innymi) tworzyć przy pomocy poleceń \verb|\split|
+    \begin{verbatim}
+    \begin{equation}
+            \begin{split}
+            \end{split}
+    \end{equation}
+    \end{verbatim}
+    oraz \verb|\align|. Wypróbuj każde z nich do wpisania poniższego wyrażenia
+    \begin{align*}
+       \sum_{i=1}^n i   = & 1+2+\dots+n\\
+        = & \frac{n(n+1)}{2}.
+    \end{align*}
+    i zaobserwuj różnicę w ich działaniu. Zwróć uwagę na konieczność załadowania odpowiedniego pakietu.
+    \item Przy pomocy  \verb|cases| zapisz poniższe wyrażenia
+    
+    \begin{enumerate}
+        \item \begin{equation}
+            \begin{cases}
+                x+y=3\\
+                x-2y=0
+            \end{cases}
+        \end{equation}
+        \item \begin{equation} 
+        \sqrt{x^2} = \begin{cases}
+                x, & \text{gdy } x\geq 0,\\
+                -x, & \text{gdy} x<0.
+            \end{cases}
+        \end{equation}
+        Zwróć uwagę, na wyrównanie tekstu opisującego warunek (wskazówka: użyj \verb|&|), oraz na czcionkę (\verb|\text{}| wewnątrz trybu matematycznego.).
+    \end{enumerate}
+    \item Wprowadź w dokumencie kilka akapitów Lorem Ipsum (\verb|\lipsum|). Poeksperymentuj z układem tekstu: marginesami (pakiet \verb|geometry|), interlinią (pakiet \verb|setspace|) oraz czcionką i układem kolumn (opcje w klasie \verb|article|).
+\end{enumerate} 
+%
+\textbf{Zadanie domowe.} Zapisz w \LaTeX ie wybrane polecenie z listy zadań z dowolnego przedmiotu matematycznego, które zawiera w treści jakąś formułę matematyczną, najlepiej rozwiązane przez Ciebie przy tablicy (jeżeli zadanie ma wiele podpunktów, możesz wybrać jeden).
+
+\newpage
+\begin{equation}
+    \frac{\mathrm{d}x}{\mathrm{d}y} = \frac{\operatorname{d}x}{\operatorname{d}y}
+\end{equation}
+\begin{equation}
+    \operatorname{arg\;max} f(x)
+\end{equation}
+\end{document}
