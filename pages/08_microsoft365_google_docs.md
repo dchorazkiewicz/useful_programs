@@ -713,6 +713,49 @@ Temat powinien pozwalać zrozumieć cel wiadomości bez jej otwierania.
 
 ---
 
+## BCC, CC i TO
+
+Wyjaśnienie skrótów:
+
+- **TO** — odbiorca główny,
+- **CC** — kopia do wiadomości,
+- **BCC** — ukryta kopia do wiadomości.
+
+
+Słabo:
+
+~~~text
+TO: 10 osób
+~~~
+
+Lepiej:
+
+~~~text
+TO: prowadzący
+BCC: 10 osób
+~~~
+
+Cieżkim błędem jest wysyłanie wiadomości do wielu osób w polu TO lub CC, co ujawnia adresy e-mail wszystkim odbiorcom.
+
+---
+
+## Przekierowanie wiadomości
+
+Skrzynka uczelniana może mieć przekierowanie na adres prywatny. W tym celu trzeba zadbać aby wiadomści były pobierane z serwera uczelni i nie były usuwane.
+
+---
+
+## Reguły
+
+Można wprowadzić reguły automatyzujące obsługę wiadomości:
+
+- przenoszenie do folderu,
+- oznacznie etykietą.
+
+Szczegóły różnią się między pocztami więc należy sprawdzić dokumentację.
+
+---
+
 ## Wiadomość techniczna
 
 Dobra wiadomość o problemie powinna zawierać:
