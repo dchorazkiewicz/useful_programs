@@ -1,67 +1,77 @@
 # 1. Markdown, Colab i GitHub
 
-Ten blok otwiera cały kurs. Chodzi o opanowanie prostego workflow, który będzie później wracał prawie wszędzie:
+W tym bloku poznamy trzy narzędzia, które rozwiązują trzy różne problemy:
 
-**plik → repozytorium → zmiana → commit → wynik → opis → feedback**
+| Narzędzie | Do czego służy? |
+| --- | --- |
+| **Markdown** | do prostego zapisywania uporządkowanego tekstu, dokumentacji i raportów |
+| **Google Colab** | do łączenia tekstu, kodu, obliczeń i wyników w jednym notebooku |
+| **GitHub** | do przechowywania projektu, śledzenia zmian i współpracy |
 
-Nie trzeba jeszcze znać terminala ani programować. Na tym etapie wystarczy przeglądarka, GitHub i Google Colab.
-
-## Co warto umieć po tym bloku
-
-Po wykonaniu materiału student powinien umieć:
-
-- utworzyć fork repozytorium,
-- poruszać się po strukturze plików i folderów,
-- edytować pliki Markdown,
-- zapisywać kolejne wersje pracy jako commity,
-- odczytać historię zmian,
-- utworzyć i opisać Issue,
-- przygotować prosty notebook w Google Colab,
-- połączyć opis, kod i wynik w jednym materiale,
-- zapisać wynik obliczeń jako plik,
-- osadzić grafikę w raporcie Markdown,
-- przygotować materiały tak, aby inna osoba lub automat mogły je sprawdzić.
+Te trzy elementy bardzo dobrze ze sobą współpracują. Możemy przygotować opis w Markdown, wykonać obliczenia w Colabie, a następnie przechować źródła i wyniki w repozytorium GitHub.
 
 ---
 
 # Markdown
 
-## Po co nam Markdown?
+## Co to jest Markdown?
 
-Markdown to zwykły plik tekstowy, w którym kilka prostych znaków określa strukturę dokumentu.
+**Markdown** to prosty język znaczników służący do formatowania zwykłego tekstu.
 
-Plik:
+Najczęściej zapisujemy go w plikach z rozszerzeniem:
 
 ~~~text
-raport.md
+.md
 ~~~
 
-może zawierać nagłówki, listy, linki, tabele, wzory matematyczne, obrazy i fragmenty kodu. GitHub renderuje taki plik jako czytelny dokument.
+Przykłady:
 
-To dobry format do:
+~~~text
+README.md
+raport.md
+notatki.md
+~~~
 
-- notatek,
-- instrukcji,
-- raportów,
-- dokumentacji kodu,
-- opisów projektów,
-- prowadzenia dziennika pracy.
+Plik Markdown jest zwykłym plikiem tekstowym. Można go otworzyć praktycznie w każdym edytorze. Specjalne znaki, takie jak `#`, `*`, `-` czy backtick, informują program wyświetlający dokument, jak ma wyglądać tekst.
 
-Najważniejsza zaleta: **źródło jest nadal zwykłym tekstem**. Można je łatwo czytać, poprawiać, porównywać i wersjonować.
+Warto od razu rozróżnić dwie rzeczy:
+
+- **źródło Markdown** — tekst, który wpisujemy do pliku,
+- **wyrenderowany dokument** — wygląd tego tekstu po interpretacji składni Markdown.
+
+Na GitHubie możemy przełączać się między widokiem źródła i wyrenderowanym dokumentem.
 
 ## Nagłówki
+
+Nagłówki budują strukturę dokumentu. Im więcej znaków `#`, tym niższy poziom nagłówka.
+
+Źródło:
 
 ~~~markdown
 # Tytuł dokumentu
 
 ## Główna sekcja
 
-### Mniejsza sekcja
+### Podsekcja
 ~~~
 
-Dobra zasada: jeden dokument powinien mieć jeden główny tytuł.
+Efekt:
 
-## Wyróżnienia
+> # Tytuł dokumentu
+>
+> ## Główna sekcja
+>
+> ### Podsekcja
+
+W praktyce jeden dokument powinien mieć jeden główny nagłówek `#`.
+
+Dalsze części dokumentu organizujemy za pomocą `##`, `###` itd.
+
+---
+
+## Pogrubienie, kursywa i przekreślenie
+
+Źródło:
 
 ~~~markdown
 **tekst pogrubiony**
@@ -69,116 +79,303 @@ Dobra zasada: jeden dokument powinien mieć jeden główny tytuł.
 *tekst pochylony*
 
 ~~tekst przekreślony~~
+
+***tekst pogrubiony i pochylony***
 ~~~
 
-co wyświetli nam: **tekst pogrubiony**, *tekst pochylony*, ~~tekst przekreślony~~.
+Efekt:
 
-W dokumentacji technicznej warto używać wyróżnień oszczędnie. Pogrubienie ma pomagać znaleźć najważniejszą informację, a nie zastępować strukturę dokumentu.
+**tekst pogrubiony**
 
-## Listy
+*tekst pochylony*
 
-Lista punktowana:
+~~tekst przekreślony~~
+
+***tekst pogrubiony i pochylony***
+
+Wyróżnień warto używać oszczędnie. Jeśli wszystko jest pogrubione, nic nie jest naprawdę wyróżnione.
+
+---
+
+## Akapit i nowa linia
+
+Nowy akapit tworzymy przez pozostawienie pustej linii.
+
+Źródło:
 
 ~~~markdown
-- pierwszy element,
-- drugi element,
-- trzeci element.
+To jest pierwszy akapit.
+
+To jest drugi akapit.
 ~~~
 
-Lista numerowana:
+Efekt:
+
+To jest pierwszy akapit.
+
+To jest drugi akapit.
+
+To ważna zasada: w Markdown pojedyncze naciśnięcie Enter nie zawsze oznacza nowy akapit.
+
+---
+
+## Listy punktowane
+
+Źródło:
 
 ~~~markdown
-1. pobierz dane,
+- Markdown
+- Colab
+- GitHub
+~~~
+
+Efekt:
+
+- Markdown
+- Colab
+- GitHub
+
+Listy można zagnieżdżać:
+
+~~~markdown
+- GitHub
+  - repozytorium
+  - Issues
+  - historia zmian
+- Colab
+  - tekst
+  - kod
+  - wyniki
+~~~
+
+Efekt:
+
+- GitHub
+  - repozytorium
+  - Issues
+  - historia zmian
+- Colab
+  - tekst
+  - kod
+  - wyniki
+
+---
+
+## Listy numerowane
+
+Źródło:
+
+~~~markdown
+1. przygotuj dane,
 2. wykonaj obliczenia,
 3. zapisz wynik,
-4. opisz rezultat.
+4. opisz wynik.
 ~~~
 
-Lista zadań:
+Efekt:
+
+1. przygotuj dane,
+2. wykonaj obliczenia,
+3. zapisz wynik,
+4. opisz wynik.
+
+Listy numerowane są szczególnie przydatne przy opisie procedury lub instrukcji.
+
+---
+
+## Checklisty
+
+GitHub obsługuje listy zadań.
+
+Źródło:
 
 ~~~markdown
-- [x] utworzono plik,
-- [x] wykonano obliczenia,
-- [ ] sprawdzono wynik.
+- [x] utworzono notebook
+- [x] wykonano obliczenia
+- [ ] sprawdzono wynik
 ~~~
 
-Checklisty są bardzo użyteczne w GitHub Issues i przy kontroli kompletności projektu.
+Efekt:
+
+- [x] utworzono notebook
+- [x] wykonano obliczenia
+- [ ] sprawdzono wynik
+
+Checklisty bardzo dobrze nadają się do krótkich list kontrolnych w dokumentacji i GitHub Issues.
+
+---
 
 ## Linki
+
+Źródło:
 
 ~~~markdown
 [GitHub](https://github.com/)
 ~~~
 
-Dobrze opisany link jest lepszy niż wklejony długi adres.
+Efekt:
+
+[GitHub](https://github.com/)
+
+Zamiast wklejać długi adres do strony, warto umieścić go pod czytelną nazwą.
+
+---
 
 ## Obrazy
 
-Obraz znajdujący się w tym samym repozytorium można osadzić względną ścieżką:
+Obraz osadzamy podobnie jak link, ale na początku dodajemy znak `!`.
+
+Źródło:
 
 ~~~markdown
-![Opis wykresu](wykres.png)
+![Wykres zależności y od x](wykres.png)
 ~~~
 
-Jeżeli plik znajduje się w podfolderze:
+Jeżeli plik `wykres.png` znajduje się w tym samym folderze co dokument Markdown, GitHub wyświetli obraz w miejscu tej instrukcji.
+
+Jeżeli plik znajduje się w podfolderze `obrazy`, używamy ścieżki:
 
 ~~~markdown
-![Opis wykresu](obrazy/wykres.png)
+![Wykres zależności y od x](obrazy/wykres.png)
 ~~~
 
-Warto używać ścieżek względnych. Dzięki temu dokument działa również po wykonaniu forka lub sklonowaniu repozytorium.
+Tekst w nawiasach kwadratowych jest opisem obrazu. Warto go uzupełniać — pomaga zrozumieć zawartość także wtedy, gdy obraz nie może zostać wyświetlony.
+
+W projektach przechowywanych w repozytorium zwykle wygodniej używać **ścieżek względnych** niż pełnych adresów internetowych.
+
+---
 
 ## Tabele
 
+Źródło:
+
 ~~~markdown
-| Narzędzie | Zastosowanie |
-| --- | --- |
-| Markdown | dokumentacja |
-| Colab | notebooki i obliczenia |
-| GitHub | wersjonowanie i współpraca |
+| Narzędzie | Typ pliku | Zastosowanie |
+| --- | --- | --- |
+| Markdown | .md | dokumentacja |
+| Colab | .ipynb | obliczenia |
+| GitHub | repozytorium | historia projektu |
 ~~~
 
-To 
+Efekt:
 
-Tabele są wygodne do krótkich zestawień. Długiego opisu lepiej nie wciskać do tabeli.
+| Narzędzie | Typ pliku | Zastosowanie |
+| --- | --- | --- |
+| Markdown | `.md` | dokumentacja |
+| Colab | `.ipynb` | obliczenia |
+| GitHub | repozytorium | historia projektu |
 
-## Kod w Markdown
+Tabele są dobre do krótkich zestawień. Jeśli w komórkach pojawiają się długie akapity tekstu, zwykle lepiej wrócić do zwykłych sekcji i list.
 
-Krótki fragment kodu można wyróżnić wewnątrz zdania, a większy fragment umieścić w osobnym bloku.
+---
 
-~~~python
+## Kod w tekście
+
+Nazwy plików, komendy i bardzo krótkie fragmenty kodu warto oznaczać pojedynczym backtickiem.
+
+Źródło:
+
+~~~markdown
+Uruchom plik `analiza.py` i sprawdź wartość zmiennej `wynik`.
+~~~
+
+Efekt:
+
+Uruchom plik `analiza.py` i sprawdź wartość zmiennej `wynik`.
+
+---
+
+## Bloki kodu
+
+Większy fragment kodu umieszczamy w osobnym bloku.
+
+Źródło:
+
+~~~~markdown
+```python
 x = 5
 y = x**2
 print(y)
+```
+~~~~
+
+Efekt działania kodu:
+
+~~~text
+25
 ~~~
 
-Po potrójnych znakach otwierających blok warto podać język, np. Python, Bash, HTML lub JSON. GitHub wtedy koloruje składnię.
+Podanie nazwy języka, np. `python`, `bash`, `html` czy `json`, pozwala GitHubowi kolorować składnię.
 
-W raporcie często warto pokazać tylko **istotny fragment kodu**, a pełny kod pozostawić w osobnym pliku lub notebooku.
+W raporcie technicznym dobrze jest pokazać krótki fragment kodu, który jest istotny dla opisywanego wyniku. Nie trzeba kopiować do raportu całego programu.
+
+---
+
+## Cytaty
+
+Źródło:
+
+~~~markdown
+> Wynik należy zawsze sprawdzić przed jego wykorzystaniem.
+~~~
+
+Efekt:
+
+> Wynik należy zawsze sprawdzić przed jego wykorzystaniem.
+
+Cytaty można wykorzystać także do krótkiego wyróżnienia komentarza lub uwagi.
+
+---
 
 ## Matematyka
 
-Na GitHubie używamy prostych, bezpiecznych zapisów.
+GitHub potrafi renderować wzory matematyczne.
 
-Krótki wzór zapisujemy pomiędzy pojedynczymi znakami dolara, np. $E=mc^2$.
+Krótki wzór umieszczamy wewnątrz pojedynczych znaków dolara.
 
-Dłuższy wzór zapisujemy w osobnym bloku:
+Źródło:
+
+~~~markdown
+Energia spoczynkowa dana jest wzorem $E=mc^2$.
+~~~
+
+Efekt:
+
+Energia spoczynkowa dana jest wzorem $E=mc^2$.
+
+Dłuższy wzór umieszczamy w osobnym bloku.
+
+Źródło:
+
+~~~markdown
+$$
+\sum_{k=1}^{n} k^2
+=
+\frac{n(n+1)(2n+1)}{6}
+$$
+~~~
+
+Efekt:
 
 $$
-S = 1 + 2 + 3 + \ldots + n
+\sum_{k=1}^{n} k^2
+=
+\frac{n(n+1)(2n+1)}{6}
 $$
 
-W tym repozytorium stosujemy następujące zasady:
+Macierze zapisujemy wielowierszowo:
 
-- matematyka w tekście: pojedyncze dolary,
-- matematyka w osobnym bloku: podwójne dolary,
-- podwójne dolary zawsze stoją w osobnych liniach,
-- przed i po bloku matematycznym zostawiamy pustą linię,
-- nie używamy składni z nawiasami poprzedzonymi ukośnikiem,
-- dla macierzy używamy środowiska pmatrix,
-- nie umieszczamy wielowierszowych konstrukcji matematycznych wewnątrz pojedynczych dolarów.
+~~~markdown
+$$
+A=
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
+\end{pmatrix}
+$$
+~~~
 
-Przykład macierzy:
+Efekt:
 
 $$
 A=
@@ -188,85 +385,214 @@ A=
 \end{pmatrix}
 $$
 
-Markdown powinien być sprawdzany również po wyrenderowaniu na GitHubie. Plik poprawny w edytorze nie zawsze musi wyglądać identycznie w przeglądarce.
+W materiałach tego kursu używamy prostego zestawu reguł formatowania matematyki przygotowanego specjalnie tak, aby pliki dobrze renderowały się na GitHubie.
+
+---
 
 ## README.md
 
-Plik **README.md** jest szczególny. GitHub automatycznie pokazuje go jako stronę opisową folderu lub repozytorium.
+`README.md` to zwykły plik Markdown, ale GitHub traktuje go szczególnie: automatycznie pokazuje jego zawartość na stronie repozytorium lub folderu.
 
-Dobry README odpowiada krótko na pytania:
+Dobry README powinien szybko odpowiadać na pytania:
 
-- co to jest,
-- do czego służy,
-- jak tego użyć,
-- gdzie znajdują się najważniejsze pliki,
-- jaki jest aktualny stan pracy.
+- co znajduje się w tym miejscu,
+- do czego służą pliki,
+- jak uruchomić projekt,
+- gdzie znajduje się wynik,
+- jakie są najważniejsze informacje dla osoby, która widzi projekt pierwszy raz.
 
-W tym kursie README będzie również pełnił rolę małego panelu informacyjnego studenta.
+Przykładowa bardzo mała struktura:
 
-## Zrzut ekranu to nie dokumentacja źródłowa
+~~~markdown
+# Analiza danych
 
-Zrzut ekranu bywa przydatny, ale nie powinien zastępować tekstu, kodu ani danych.
+Krótki opis projektu.
 
-Jeżeli na zrzucie znajduje się ważny komunikat, tabela albo fragment instrukcji, warto zachować:
+## Pliki
 
-1. obraz źródłowy,
-2. tekstową transkrypcję,
-3. krótki opis, czego dotyczy materiał.
+- `analiza.py` — kod,
+- `dane.csv` — dane wejściowe,
+- `wykres.png` — wynik.
 
-AI może pomóc przepisać tekst ze zrzutu, ale wynik należy sprawdzić. To szczególnie ważne dla liczb, nazw plików, kodu i komunikatów błędów.
+## Uruchomienie
+
+Uruchom `analiza.py`.
+
+## Wynik
+
+Najważniejszy wynik wynosi 12.4.
+~~~
+
+README nie musi być długi. Ma przede wszystkim pozwolić szybko zrozumieć projekt.
+
+---
+
+## Zrzut ekranu i transkrypcja
+
+Czasem informacja istnieje tylko jako obraz: zrzut ekranu programu, zdjęcie tabeli, komunikat błędu albo fragment zeskanowanego dokumentu.
+
+AI może pomóc przepisać zawartość obrazu do tekstu. Taki proces nazywamy tutaj **transkrypcją**.
+
+Przykładowy workflow:
+
+1. zachowujemy oryginalny obraz,
+2. prosimy AI o przepisanie jego zawartości,
+3. zapisujemy wynik w pliku tekstowym lub Markdown,
+4. porównujemy transkrypcję z obrazem,
+5. poprawiamy ewentualne błędy.
+
+Największej ostrożności wymagają:
+
+- liczby,
+- wzory,
+- nazwy plików,
+- adresy,
+- fragmenty kodu,
+- komunikaty błędów.
+
+Transkrypcja wygenerowana przez AI jest **wersją roboczą**, dopóki człowiek jej nie sprawdzi.
+
+---
+
+## Dobre materiały o Markdown
+
+- [GitHub Docs — Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [GitHub Docs — Writing mathematical expressions](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
+- [Markdown Guide — Basic Syntax](https://www.markdownguide.org/basic-syntax/)
+- [Markdown Guide — Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 
 ---
 
 # Google Colab
 
-## Czym jest notebook?
+## Co to jest Google Colab?
 
-Google Colab pozwala tworzyć notebooki zapisane jako pliki **.ipynb**.
+**Google Colab** jest działającym w przeglądarce środowiskiem opartym na notebookach Jupyter.
 
-Notebook może łączyć:
+Notebook to dokument, który może zawierać jednocześnie:
 
-- tekst,
+- opis,
 - wzory,
 - kod,
-- wynik działania kodu,
-- wykresy,
-- krótkie komentarze.
+- wyniki obliczeń,
+- tabele,
+- wykresy.
 
-Dzięki temu obliczenie nie musi być oderwane od opisu.
+Notebook Colaba jest zwykle zapisywany jako plik:
 
-Typowy układ:
+~~~text
+nazwa_notebooka.ipynb
+~~~
 
-1. tytuł i cel,
-2. dane lub parametry,
-3. kod,
-4. wynik,
-5. krótki komentarz.
+Rozszerzenie `.ipynb` pochodzi od formatu Jupyter Notebook.
 
-## Dwa podstawowe typy komórek
+---
 
-W praktyce najczęściej używamy:
+## Komórki
 
-- komórek **Text / Markdown**,
-- komórek **Code**.
+Notebook składa się z **komórek**.
 
-Komórka tekstowa wyjaśnia, co robimy. Komórka kodowa wykonuje operację.
+Najczęściej używamy dwóch rodzajów:
 
-Dobry notebook nie powinien być serią przypadkowych komórek z kodem. Osoba, która otworzy go za miesiąc, powinna wiedzieć, po co wykonano dane obliczenie.
+### Komórka tekstowa
 
-## Kolejność wykonywania komórek ma znaczenie
+Służy do opisu obliczeń. Obsługuje Markdown.
 
-Notebook pamięta wyniki wykonanych komórek. Można więc przypadkiem stworzyć notebook, który działa tylko dlatego, że komórki uruchomiono wcześniej w nietypowej kolejności.
+Przykład zawartości:
 
-Dlatego przed oddaniem pracy warto wykonać test:
+~~~markdown
+## Obliczenie pola koła
 
-**Runtime → Restart session → Run all**
+Dla promienia $r=3$ liczymy pole ze wzoru
 
-Jeżeli notebook po restarcie wykonuje się od początku do końca bez ręcznych poprawek, jest znacznie bardziej wiarygodny.
+$$
+P=\pi r^2
+$$
+~~~
 
-## Pliki utworzone w Colabie
+### Komórka kodu
 
-Kod może wygenerować plik:
+Zawiera kod wykonywany przez środowisko.
+
+Przykład:
+
+~~~python
+import math
+
+r = 3
+P = math.pi * r**2
+
+print(P)
+~~~
+
+Efekt:
+
+~~~text
+28.274333882308138
+~~~
+
+Dobrze przygotowany notebook przeplata opis z kodem. Czytelnik powinien wiedzieć **co liczymy, dlaczego to liczymy i jaki otrzymaliśmy wynik**.
+
+---
+
+## Runtime, czyli środowisko wykonawcze
+
+Notebook jest plikiem, ale kod musi zostać gdzieś wykonany.
+
+Colab uruchamia dla notebooka osobne **środowisko wykonawcze** — runtime.
+
+Można myśleć o nim jak o tymczasowym komputerze uruchomionym w chmurze.
+
+W runtime znajdują się między innymi:
+
+- pamięć zmiennych,
+- uruchomiony Python,
+- zainstalowane biblioteki,
+- pliki wygenerowane podczas obliczeń.
+
+Notebook i runtime to nie to samo.
+
+Notebook można zachować, natomiast środowisko wykonawcze może zostać zamknięte lub zresetowane.
+
+---
+
+## Stan notebooka
+
+Rozważmy dwie komórki.
+
+Pierwsza:
+
+~~~python
+a = 10
+~~~
+
+Druga:
+
+~~~python
+print(a + 5)
+~~~
+
+Jeżeli wykonamy je w tej kolejności, otrzymamy:
+
+~~~text
+15
+~~~
+
+Jeżeli jednak zrestartujemy runtime i uruchomimy tylko drugą komórkę, zmienna `a` jeszcze nie istnieje i kod zakończy się błędem.
+
+Dlatego notebook przed oddaniem powinien dać się wykonać **od początku do końca w prawidłowej kolejności**.
+
+Dobra praktyka:
+
+1. restart runtime,
+2. uruchomienie wszystkich komórek od początku,
+3. sprawdzenie, czy żadna komórka nie kończy się błędem.
+
+---
+
+## Tworzenie pliku w Colabie
+
+Kod może wygenerować zwykły plik.
 
 ~~~python
 wynik = 2 + 2
@@ -275,163 +601,338 @@ with open("wynik.txt", "w", encoding="utf-8") as f:
     f.write(str(wynik))
 ~~~
 
-Taki plik istnieje w bieżącej sesji Colaba. Trzeba go następnie pobrać albo zapisać w trwałym miejscu.
+Powstanie plik:
 
-Środowisko Colab jest tymczasowe. Po zakończeniu sesji pliki przechowywane wyłącznie w środowisku wykonawczym mogą zniknąć.
+~~~text
+wynik.txt
+~~~
 
-## Notebook i repozytorium
+o zawartości:
 
-Notebook można przechowywać w GitHubie tak samo jak inne pliki.
+~~~text
+4
+~~~
 
-W praktyce interesują nas dwa elementy:
-
-- plik **.ipynb** jako źródło obliczenia,
-- wygenerowane wyniki, np. **.txt**, **.csv**, **.png** lub **.html**.
-
-Dzięki temu można osobno sprawdzić kod i osobno jego rezultat.
+To ważny przykład: kod nie musi tylko wyświetlać wyniku na ekranie. Może wygenerować plik, który następnie zapisujemy jako część projektu.
 
 ---
 
-# GitHub
+## Tworzenie wykresu
+
+Przykład:
+
+~~~python
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
+
+plt.plot(x, y, marker="o")
+plt.xlabel("x")
+plt.ylabel("x^2")
+plt.grid()
+plt.savefig("wykres.png", dpi=150, bbox_inches="tight")
+plt.show()
+~~~
+
+Kod:
+
+1. tworzy dane,
+2. rysuje wykres,
+3. zapisuje go jako `wykres.png`,
+4. pokazuje wykres w notebooku.
+
+Po wykonaniu komórki w plikach runtime pojawi się:
+
+~~~text
+wykres.png
+~~~
+
+Taki plik można później umieścić w repozytorium i osadzić w raporcie Markdown.
+
+---
+
+## Pliki w Colabie są tymczasowe
+
+Pliki utworzone w runtime nie powinny być traktowane jako trwałe archiwum.
+
+Jeżeli wygenerujemy:
+
+~~~text
+wynik.txt
+wykres.png
+dane.csv
+~~~
+
+należy zapisać potrzebne rezultaty w trwałym miejscu, np.:
+
+- pobrać je na komputer,
+- zapisać na Dysku Google,
+- umieścić w repozytorium.
+
+---
+
+## Notebook jako dokument obliczenia
+
+Dobry notebook powinien przypominać krótki raport, a nie przypadkowy zbiór komórek.
+
+Prosty układ:
+
+~~~text
+Tytuł
+↓
+Cel
+↓
+Dane / parametry
+↓
+Kod
+↓
+Wynik
+↓
+Krótki komentarz
+~~~
+
+Czytelnik powinien móc otworzyć notebook i zrozumieć jego sens bez pytania autora, „co tutaj właściwie zrobiłeś?”.
+
+---
+
+## Dobre materiały o Colabie
+
+- [Google Colab — oficjalne wprowadzenie](https://colab.research.google.com/notebooks/intro.ipynb?hl=pl)
+- [Google Colab — FAQ](https://research.google.com/colaboratory/faq.html)
+
+---
+
+# Git i GitHub
+
+## Git i GitHub to nie to samo
+
+Te pojęcia są często mylone.
+
+**Git** jest systemem kontroli wersji. Śledzi historię zmian w projekcie.
+
+**GitHub** jest serwisem internetowym, który przechowuje repozytoria Git i dodaje narzędzia do współpracy: stronę projektu, Issues, Pull Requests, przeglądanie historii, komentarze i wiele innych funkcji.
+
+Na początku kursu będziemy wykonywać większość operacji bezpośrednio przez stronę GitHub. Praca z Gitem w terminalu pojawi się później.
+
+---
 
 ## Repozytorium
 
-Repozytorium to uporządkowany zbiór plików wraz z historią ich zmian.
+**Repozytorium** to projekt przechowywany razem z historią zmian.
 
-W tym kursie repozytorium studenta jest jednocześnie:
+Może zawierać:
 
-- miejscem wykonywania zadań,
-- historią pracy,
-- miejscem przechowywania wyników,
-- dokumentacją,
-- podstawą do sprawdzania zadań.
+~~~text
+README.md
+kod.py
+dane.csv
+wykres.png
+raport.md
+~~~
+
+ale Git przechowuje także informacje o tym, jak projekt zmieniał się w czasie.
+
+Repozytorium pozwala więc odpowiedzieć nie tylko na pytanie:
+
+> Jak wygląda projekt teraz?
+
+ale także:
+
+> Jak doszliśmy do tej wersji?
+
+---
 
 ## Fork
 
-Fork tworzy własną kopię repozytorium na GitHubie.
+**Fork** to własna kopia istniejącego repozytorium utworzona na koncie użytkownika i pozostająca powiązana z repozytorium źródłowym.
 
 Schemat:
 
-**repozytorium kursu → fork → repozytorium studenta**
+~~~text
+repozytorium prowadzącego
+          ↓
+         fork
+          ↓
+repozytorium studenta
+~~~
 
-Student pracuje we własnym forku. Dzięki temu może zmieniać pliki bez naruszania repozytorium bazowego.
+Po wykonaniu forka student może zmieniać własną kopię bez zmieniania repozytorium prowadzącego.
+
+---
 
 ## Commit
 
-Commit zapisuje konkretny stan zmian.
+**Commit** to zapis konkretnego zestawu zmian w historii repozytorium.
 
-Dobry commit powinien odpowiadać jednej sensownej zmianie.
+Commit zawiera między innymi:
 
-Lepsze komunikaty:
+- zmienione pliki,
+- informację o autorze,
+- datę,
+- unikalny identyfikator,
+- komunikat opisujący zmianę.
+
+Przykładowe komunikaty:
 
 ~~~text
 01: dodaj raport Markdown
 01: dodaj notebook Colab
-01: popraw ścieżkę do wykresu
+01: popraw opis wykresu
 ~~~
 
-Słabsze komunikaty:
+Takie komunikaty są czytelne, ponieważ mówią, **co zostało zrobione**.
+
+Mało użyteczne komunikaty:
 
 ~~~text
 zmiany
 update
-aaa
-final final
+poprawka
+final
+final2
 ~~~
 
-Historia commitów powinna pozwalać zrozumieć, jak rozwijała się praca.
+Lepiej zapisywać kilka logicznych etapów pracy niż całość jednym wielkim commitem na końcu.
+
+---
 
 ## Historia zmian
 
-GitHub pozwala zobaczyć:
+GitHub pozwala otworzyć historię pliku lub całego repozytorium.
+
+Możemy sprawdzić:
 
 - kto wykonał zmianę,
 - kiedy ją wykonano,
-- które pliki zmieniono,
-- co dokładnie dodano lub usunięto.
+- jaki był komunikat commita,
+- które linie dodano,
+- które linie usunięto.
 
-To jedna z najważniejszych różnic między zwykłym folderem z plikami a repozytorium.
+Porównanie dwóch wersji pliku nazywamy często **diffem**.
 
-W pracy naukowej i technicznej historia zmian bywa równie cenna jak aktualna wersja pliku.
+Przykładowo zmiana:
 
-## Issues
+~~~diff
+- wynik = 12
++ wynik = 13
+~~~
 
-Issue to uporządkowany wątek dotyczący konkretnego zadania, problemu lub poprawki.
+oznacza, że stara linia została usunięta, a w jej miejsce dodano nową.
 
-Issue może zawierać:
+---
 
-- opis problemu,
-- checklistę,
-- linki do plików,
-- uwagi prowadzącego,
-- informację o poprawkach,
-- dyskusję,
-- informację o zaliczeniu.
+## Issue
 
-W tym kursie Issues będą jednym z głównych kanałów feedbacku.
+**Issue** to osobny wątek związany z repozytorium.
 
-Przykładowa checklista:
+Może służyć jako:
+
+- zgłoszenie błędu,
+- lista rzeczy do wykonania,
+- pytanie,
+- miejsce feedbacku,
+- informacja o gotowości zadania do sprawdzenia.
+
+Issue ma tytuł i opis, a później może być uzupełniane komentarzami.
+
+Przykład opisu Issue:
 
 ~~~markdown
+## Lista plików
+
 - [x] README.md
 - [x] colab_intro.ipynb
 - [x] wynik.txt
 - [x] wykres.png
 - [ ] raport.md
-- [x] historia.md
 ~~~
+
+Po wyrenderowaniu:
+
+### Lista plików
+
+- [x] README.md
+- [x] colab_intro.ipynb
+- [x] wynik.txt
+- [x] wykres.png
+- [ ] raport.md
+
+Issue można zamknąć, gdy sprawa została rozwiązana.
 
 ---
 
-# Organizacja plików ma znaczenie
+## Dobre materiały o Git i GitHubie
 
-Przy automatycznym lub półautomatycznym sprawdzaniu bardzo ważne są przewidywalne nazwy plików.
-
-Jeżeli instrukcja wymaga pliku:
-
-~~~text
-zadania/01_markdown_colab_github/wynik.txt
-~~~
-
-to pliki:
-
-~~~text
-wynik2.txt
-Wynik.txt
-wynik_ostateczny.txt
-mojwynik.txt
-~~~
-
-nie są tym samym plikiem.
-
-W zadaniach kursowych należy więc:
-
-- zachowywać podane nazwy folderów,
-- zachowywać podane nazwy plików,
-- nie przenosić rozwiązania do innego miejsca,
-- nie zastępować pliku źródłowego zrzutem ekranu,
-- sprawdzać linki i ścieżki względne,
-- usuwać przypadkowe pliki tymczasowe.
-
-To nie jest biurokracja. W prawdziwych projektach dokładnie od tego zależy, czy kolejne narzędzie potrafi znaleźć dane wejściowe.
+- [GitHub Docs — About Git](https://docs.github.com/en/get-started/using-git/about-git)
+- [GitHub Docs — About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
+- [GitHub Docs — Forks](https://docs.github.com/en/pull-requests/reference/forks)
+- [GitHub Docs — Commits](https://docs.github.com/en/pull-requests/reference/commits)
+- [GitHub Docs — About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/about-issues)
 
 ---
 
-# Minimalny workflow na tym etapie
+# Pierwszy mały workflow
 
-Na razie wystarczy następujący sposób pracy:
+Policzmy sumę kwadratów liczb od 1 do 100:
 
-1. otwórz własny fork repozytorium,
-2. znajdź właściwy folder zadania,
-3. utwórz lub zmodyfikuj plik,
-4. sprawdź jego podgląd,
-5. wykonaj commit z czytelnym komunikatem,
-6. jeżeli pracujesz w Colabie, zapisz notebook i pobierz wygenerowane pliki,
-7. dodaj wyniki do repozytorium,
-8. sprawdź, czy wszystkie linki i obrazy działają,
-9. otwórz Issue informujące o gotowości do sprawdzenia.
+$$
+S=\sum_{k=1}^{100} k^2
+$$
 
-W kolejnych blokach ten workflow rozszerzymy o terminal, Git, VS Code, Codespaces i pracę agentową.
+W Colabie możemy użyć:
+
+~~~python
+n = 100
+suma = sum(k**2 for k in range(1, n + 1))
+
+print(suma)
+~~~
+
+Efekt:
+
+~~~text
+338350
+~~~
+
+Ten sam wynik możemy sprawdzić ze wzoru:
+
+$$
+\sum_{k=1}^{n} k^2
+=
+\frac{n(n+1)(2n+1)}{6}
+$$
+
+Dla $n=100$ otrzymujemy:
+
+$$
+S=338350
+$$
+
+Następnie zapisujemy wartość do pliku:
+
+~~~python
+with open("wynik.txt", "w", encoding="utf-8") as f:
+    f.write(str(suma))
+~~~
+
+Powstaje plik:
+
+~~~text
+wynik.txt
+~~~
+
+o zawartości:
+
+~~~text
+338350
+~~~
+
+Mamy teraz trzy reprezentacje tej samej pracy:
+
+1. **kod** — pokazuje, jak policzono wynik,
+2. **plik wynikowy** — przechowuje konkretny rezultat,
+3. **opis Markdown** — wyjaśnia, co zostało zrobione.
 
 ---
 
@@ -443,7 +944,7 @@ Wszystkie rozwiązania z tego bloku umieść w folderze:
 zadania/01_markdown_colab_github/
 ~~~
 
-Po zakończeniu folder powinien zawierać:
+Po wykonaniu wszystkich zadań folder powinien zawierać:
 
 ~~~text
 zadania/01_markdown_colab_github/
@@ -452,70 +953,102 @@ zadania/01_markdown_colab_github/
 ├── wynik.txt
 ├── wykres.png
 ├── raport.md
+├── zrzut.png
+├── transkrypcja.md
 └── historia.md
 ~~~
 
 Nie zmieniaj nazw wymaganych plików.
 
-## Zadanie 1. README jako karta pracy
+---
 
-Utwórz plik **README.md**, który będzie krótką kartą Twojej pracy w tym bloku.
+## Zadanie 1. README w Markdown
+
+Utwórz plik `README.md`.
 
 Plik ma zawierać:
 
 - tytuł,
-- 2–4 zdania wprowadzenia,
-- sekcję **Narzędzia**,
-- listę co najmniej trzech narzędzi użytych w bloku,
-- tabelę z kolumnami **Plik** i **Opis**,
+- krótki opis bloku,
+- co najmniej jeden fragment **pogrubiony**,
+- co najmniej jeden fragment *pochylony*,
+- co najmniej jeden fragment ~~przekreślony~~,
+- listę punktowaną,
+- listę numerowaną,
+- checklistę,
+- tabelę,
 - link do strony Google Colab,
-- checklistę wszystkich zadań z tego bloku,
-- jeden krótki fragment kodu,
-- jeden krótki wzór zapisany inline,
-- jeden wzór zapisany jako osobny blok matematyczny.
+- krótki fragment kodu,
+- jeden wzór matematyczny inline,
+- jeden wzór jako osobny blok.
 
-README ma być czytelny po wyrenderowaniu bezpośrednio na GitHubie.
+Dodaj również tabelę:
 
-### Kryterium zaliczenia
+~~~markdown
+| Plik | Opis |
+| --- | --- |
+| README.md | opis rozwiązania |
+| colab_intro.ipynb | notebook |
+| wynik.txt | wynik obliczenia |
+| wykres.png | wykres |
+| raport.md | raport |
+~~~
 
-Automat powinien móc znaleźć wymagane elementy, a prowadzący powinien móc szybko zrozumieć strukturę rozwiązania.
+Po zapisaniu pliku otwórz jego wyrenderowany widok na GitHubie i sprawdź, czy wszystkie elementy wyglądają poprawnie.
+
+### Sprawdzenie
+
+Będzie można automatycznie sprawdzić między innymi:
+
+- istnienie `README.md`,
+- obecność wymaganych elementów Markdown,
+- obecność tabeli i checklisty,
+- podstawową strukturę pliku.
 
 ---
 
-## Zadanie 2. Notebook, który produkuje wynik
+## Zadanie 2. Notebook Colab
 
-Utwórz w Google Colab notebook **colab_intro.ipynb**.
+Utwórz notebook `colab_intro.ipynb`.
 
-Notebook ma zawierać:
+Notebook ma zawierać co najmniej:
 
-1. komórkę Markdown z tytułem i krótkim opisem,
-2. komórkę kodu obliczającą sumę kwadratów liczb od 1 do 100,
-3. komórkę kodu zapisującą wynik do pliku **wynik.txt**,
-4. komórkę kodu tworzącą wykres zależności $y=k^2$ dla $k=1,ldots,20$,
-5. zapis wykresu do pliku **wykres.png**.
+1. komórkę Markdown z tytułem,
+2. komórkę Markdown z krótkim opisem obliczenia,
+3. komórkę kodu liczącą sumę kwadratów liczb od 1 do 100,
+4. komórkę kodu zapisującą wynik do `wynik.txt`,
+5. komórkę kodu tworzącą wykres $y=k^2$ dla $k=1,\ldots,20$,
+6. zapis wykresu do `wykres.png`.
 
-Do obliczenia sumy można użyć:
+Kod obliczenia:
 
 ~~~python
 n = 100
 suma = sum(k**2 for k in range(1, n + 1))
+
 print(suma)
 ~~~
 
-Plik wynikowy ma zawierać wyłącznie liczbę:
+Efekt:
 
 ~~~text
 338350
 ~~~
 
-Przykładowy zapis wyniku:
+Kod zapisujący plik:
 
 ~~~python
 with open("wynik.txt", "w", encoding="utf-8") as f:
     f.write(str(suma))
 ~~~
 
-Do wykresu można wykorzystać:
+Plik `wynik.txt` ma zawierać dokładnie:
+
+~~~text
+338350
+~~~
+
+Przykładowy kod wykresu:
 
 ~~~python
 import matplotlib.pyplot as plt
@@ -531,36 +1064,37 @@ plt.savefig("wykres.png", dpi=150, bbox_inches="tight")
 plt.show()
 ~~~
 
-Po zakończeniu wykonaj restart środowiska i uruchom cały notebook od początku.
+Na końcu:
 
-Do repozytorium dodaj:
+1. zrestartuj runtime,
+2. uruchom wszystkie komórki od początku,
+3. upewnij się, że notebook nie zgłasza błędów,
+4. dodaj notebook, `wynik.txt` i `wykres.png` do repozytorium.
 
-- **colab_intro.ipynb**,
-- **wynik.txt**,
-- **wykres.png**.
+### Sprawdzenie
 
-### Kryterium zaliczenia
+Będzie można sprawdzić między innymi:
 
-- notebook istnieje,
-- zawiera komórki Markdown i Code,
-- plik **wynik.txt** istnieje,
-- jego zawartość to dokładnie 338350,
-- plik **wykres.png** istnieje i nie jest pusty.
+- istnienie notebooka,
+- obecność komórek Markdown i Code,
+- zawartość `wynik.txt`,
+- istnienie `wykres.png`,
+- strukturę notebooka.
 
 ---
 
-## Zadanie 3. Krótki raport techniczny
+## Zadanie 3. Raport z kodem i wynikiem
 
-Utwórz plik **raport.md**.
+Utwórz `raport.md`.
 
-Raport ma zawierać dokładnie następujące główne sekcje:
+Raport ma mieć strukturę:
 
 ~~~markdown
 # Raport
 
 ## Cel
 
-## Kroki
+## Metoda
 
 ## Kod
 
@@ -569,44 +1103,91 @@ Raport ma zawierać dokładnie następujące główne sekcje:
 ## Wniosek
 ~~~
 
-W sekcji **Kod** umieść fragment kodu użytego do obliczenia sumy lub wygenerowania wykresu.
+W sekcji **Kod** wstaw fragment kodu wykorzystanego w notebooku.
 
 W sekcji **Wynik**:
 
-- podaj otrzymaną wartość sumy,
-- osadź plik **wykres.png** jako obraz.
+- podaj wartość 338350,
+- osadź `wykres.png`,
+- zapisz wzór na sumę kwadratów.
 
-W sekcji **Wniosek** napisz 3–5 zdań. Wyjaśnij własnymi słowami:
+W sekcji **Wniosek** napisz 3–5 własnych zdań odpowiadających na pytania:
 
-- co zostało policzone,
-- co przedstawia wykres,
-- dlaczego zapisanie kodu i wyniku w repozytorium jest lepsze niż przesłanie samego zrzutu ekranu.
+1. Co zostało policzone?
+2. Co przedstawia wykres?
+3. Dlaczego warto przechowywać kod i wynik, a nie tylko zrzut ekranu?
 
-To zadanie będzie sprawdzane zarówno strukturalnie, jak i pod kątem sensu krótkiej narracji.
+To zadanie będzie sprawdzane zarówno pod kątem struktury pliku, jak i sensu krótkiego opisu.
 
 ---
 
-## Zadanie 4. Historia pracy i GitHub Issues
+## Zadanie 4. Zrzut ekranu i transkrypcja
 
-Praca nad blokiem ma zostać podzielona na co najmniej trzy sensowne commity.
+W Colabie wyświetl fragment notebooka zawierający:
 
-Zalecany minimalny układ:
+- kod obliczający sumę,
+- wynik `338350`.
+
+Wykonaj zrzut ekranu i zapisz go jako `zrzut.png`.
+
+Następnie użyj narzędzia AI do przepisania informacji widocznej na zrzucie.
+
+Wynik zapisz jako `transkrypcja.md`.
+
+Plik ma zawierać:
+
+~~~markdown
+# Transkrypcja
+
+## Tekst wygenerowany przez AI
+
+...
+
+## Sprawdzenie ręczne
+
+...
+
+## Poprawiona wersja
+
+...
+~~~
+
+W części **Sprawdzenie ręczne** napisz krótko, czy AI przepisało materiał bezbłędnie. Jeśli pojawił się błąd, wskaż go.
+
+W części **Poprawiona wersja** umieść ostateczną, sprawdzoną transkrypcję.
+
+### Sprawdzenie
+
+Będzie można porównać:
+
+- istnienie `zrzut.png`,
+- strukturę `transkrypcja.md`,
+- zgodność transkrypcji z obrazem,
+- obecność informacji o ręcznej kontroli.
+
+---
+
+## Zadanie 5. Historia pracy
+
+Nie wykonuj całego bloku jako jednego commita.
+
+Przygotuj co najmniej trzy logiczne commity, np.:
 
 ~~~text
 01: dodaj README
 01: dodaj notebook i wyniki
-01: dodaj raport
+01: dodaj raport i transkrypcję
 ~~~
 
-Następnie utwórz plik **historia.md** zawierający tabelę:
+Następnie utwórz `historia.md` i przygotuj tabelę:
 
 ~~~markdown
-| Commit | Co zrobiłem | Dlaczego |
+| Commit | Co zmieniłem? | Dlaczego? |
 | --- | --- | --- |
 | ... | ... | ... |
 ~~~
 
-Wpisz co najmniej trzy commity. W pierwszej kolumnie podaj ich skrócone identyfikatory.
+Wpisz co najmniej trzy swoje commity. W pierwszej kolumnie podaj ich skrócone identyfikatory.
 
 Na końcu utwórz w swoim repozytorium Issue o tytule:
 
@@ -614,33 +1195,50 @@ Na końcu utwórz w swoim repozytorium Issue o tytule:
 [01] Gotowe do sprawdzenia
 ~~~
 
-W Issue dodaj checklistę wszystkich sześciu wymaganych plików oraz link do folderu rozwiązania.
+W Issue dodaj:
 
-### Kryterium zaliczenia
+- krótką informację, że blok jest gotowy,
+- link do folderu `zadania/01_markdown_colab_github/`,
+- checklistę wszystkich wymaganych plików.
 
-- istnieje **historia.md**,
-- tabela zawiera co najmniej trzy wpisy,
-- repozytorium ma sensowną historię zmian,
-- istnieje Issue **[01] Gotowe do sprawdzenia**,
-- Issue zawiera checklistę i link do rozwiązania.
+Przykład:
+
+~~~markdown
+- [x] README.md
+- [x] colab_intro.ipynb
+- [x] wynik.txt
+- [x] wykres.png
+- [x] raport.md
+- [x] zrzut.png
+- [x] transkrypcja.md
+- [x] historia.md
+~~~
+
+### Sprawdzenie
+
+Będzie można sprawdzić:
+
+- liczbę i treść commitów,
+- istnienie `historia.md`,
+- strukturę tabeli,
+- istnienie Issue,
+- kompletność checklisty.
 
 ---
 
-# Checklista przed zgłoszeniem
+# Checklista końcowa
 
-Przed utworzeniem Issue sprawdź:
+Przed zgłoszeniem bloku sprawdź:
 
-- [ ] wszystkie wymagane pliki znajdują się w poprawnym folderze,
+- [ ] wszystkie pliki znajdują się w `zadania/01_markdown_colab_github/`,
 - [ ] nazwy plików są dokładnie zgodne z instrukcją,
-- [ ] README renderuje się poprawnie na GitHubie,
-- [ ] wzory matematyczne nie wyświetlają błędów,
-- [ ] notebook wykonuje się od początku po restarcie sesji,
-- [ ] **wynik.txt** zawiera dokładnie 338350,
-- [ ] **wykres.png** otwiera się poprawnie,
-- [ ] obraz jest widoczny wewnątrz **raport.md**,
+- [ ] `README.md` poprawnie renderuje się na GitHubie,
+- [ ] wszystkie linki działają,
+- [ ] wzory matematyczne renderują się poprawnie,
+- [ ] notebook wykonuje się od początku po restarcie runtime,
+- [ ] `wynik.txt` zawiera dokładnie `338350`,
+- [ ] `wykres.png` otwiera się poprawnie,
+- [ ] `raport.md` wyświetla wykres,
+- [ ] `transkrypcja.md` została ręcznie sprawdzona,
 - [ ] historia zawiera co najmniej trzy sensowne commity,
-- [ ] utworzono Issue **[01] Gotowe do sprawdzenia**.
-
-Po tym bloku najważniejsze nie jest zapamiętanie całej składni Markdown. Ważniejsze jest opanowanie nawyku:
-
-**tworzę → zapisuję → sprawdzam → dokumentuję → wersjonuję → zgłaszam do weryfikacji.**
+- [ ] Issue `[01] Gotowe do sprawdzenia` zostało utworzone.
