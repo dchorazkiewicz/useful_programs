@@ -71,6 +71,8 @@ Dobra zasada: jeden dokument powinien mieć jeden główny tytuł.
 ~~tekst przekreślony~~
 ~~~
 
+co wyświetli nam: **tekst pogrubiony**, *tekst pochylony*, ~~tekst przekreślony~~.
+
 W dokumentacji technicznej warto używać wyróżnień oszczędnie. Pogrubienie ma pomagać znaleźć najważniejszą informację, a nie zastępować strukturę dokumentu.
 
 ## Listy
@@ -135,6 +137,8 @@ Warto używać ścieżek względnych. Dzięki temu dokument działa również po
 | Colab | notebooki i obliczenia |
 | GitHub | wersjonowanie i współpraca |
 ~~~
+
+To 
 
 Tabele są wygodne do krótkich zestawień. Długiego opisu lepiej nie wciskać do tabeli.
 
