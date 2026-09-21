@@ -200,11 +200,8 @@ pozwala wykrywać wartości występujące więcej niż raz.
 To prosty przykład połączenia:
 
 ~~~text
-formuła
-+
-formatowanie warunkowe
-=
-kontrola jakości danych
+formuła + formatowanie warunkowe
+→ kontrola jakości danych
 ~~~
 
 ---
