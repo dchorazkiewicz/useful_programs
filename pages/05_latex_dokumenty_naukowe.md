@@ -571,11 +571,7 @@ Niektóre znaki mają w LaTeX-u specjalne znaczenie.
 Przykład:
 
 ~~~text
-%
-_
-&
-#
-$
+%  _  &  #  $
 ~~~
 
 Jeżeli chcemy je wyświetlić jako zwykły tekst, często trzeba użyć odpowiedniej składni.
