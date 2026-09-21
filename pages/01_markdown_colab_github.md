@@ -165,7 +165,7 @@ Krótki wzór zapisujemy pomiędzy pojedynczymi znakami dolara, np. $E=mc^2$.
 Dłuższy wzór zapisujemy w osobnym bloku:
 
 $$
-S = 1 + 2 + 3 + \\ldots + n
+S = 1 + 2 + 3 + \ldots + n
 $$
 
 W tym repozytorium stosujemy następujące zasady:
@@ -377,7 +377,7 @@ Przykładowa checklista:
 - [x] colab_intro.ipynb
 - [x] wynik.txt
 - [x] wykres.png
-- [x] raport.md
+- [ ] raport.md
 - [x] historia.md
 ~~~
 
