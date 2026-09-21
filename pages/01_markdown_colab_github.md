@@ -34,12 +34,22 @@ notatki.md
 
 Plik Markdown jest zwykłym plikiem tekstowym. Można go otworzyć praktycznie w każdym edytorze. Specjalne znaki, takie jak `#`, `*`, `-` czy backtick, informują program wyświetlający dokument, jak ma wyglądać tekst.
 
+# Dlaczego Markdown jest tak istotny?
+
+Za każdym razem rozmawiając z chatem AI tak naprawdę rozmawiamy z plikiem Markdown. AI potrafi interpretować składnię Markdown i generować raporty w tym formacie.
+
+Dlatego też jak skopiujesz output to ma on całą masę znaczników (np. `#`, `*`, `-`, backticki, `$`), które są potrzebne do poprawnego renderowania.
+
+Github (archiwum programistyczne) zawiera opisy również w Markdown. Podobnie Google Colab (środkowisko programistyczne pythona) potrafią renderować Markdown. Dzięki temu możemy przygotować raport, który będzie wyglądał dobrze zarówno w przeglądarce, jak i w notebooku.
+
 Warto od razu rozróżnić dwie rzeczy:
 
 - **źródło Markdown** — tekst, który wpisujemy do pliku,
 - **wyrenderowany dokument** — wygląd tego tekstu po interpretacji składni Markdown.
 
 Na GitHubie możemy przełączać się między widokiem źródła i wyrenderowanym dokumentem.
+
+Podobnie edytory kodu jak VS Code, PyCharm czy Jupyter Notebook potrafią renderować Markdown w osobnym oknie podglądu.
 
 ## Nagłówki
 
