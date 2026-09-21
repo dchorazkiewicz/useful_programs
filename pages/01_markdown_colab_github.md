@@ -349,18 +349,14 @@ Dłuższy wzór umieszczamy w osobnym bloku.
 
 ~~~markdown
 $$
-\sum_{k=1}^{n} k^2
-=
-\frac{n(n+1)(2n+1)}{6}
+\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
 $$
 ~~~
 
 Efekt:
 
 $$
-\sum_{k=1}^{n} k^2
-=
-\frac{n(n+1)(2n+1)}{6}
+\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
 $$
 
 Macierze zapisujemy wielowierszowo:
@@ -898,9 +894,7 @@ Efekt:
 Ten sam wynik możemy sprawdzić ze wzoru:
 
 $$
-\sum_{k=1}^{n} k^2
-=
-\frac{n(n+1)(2n+1)}{6}
+\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
 $$
 
 Dla $n=100$ otrzymujemy:
