@@ -70,7 +70,9 @@ Celem kursu jest zapoznanie studentów z nowoczesnym warsztatem cyfrowym wykorzy
 - Excel: dane, formuły, analiza tabelaryczna, zliczanie wystąpień, formatowanie warunkowe.
 - PowerPoint: prezentacje naukowe, animacje, notatki.
 - Word: struktura dokumentu, style, komentarze i śledzenie zmian, korespondencja seryjna, QR code.
-- Współpraca online. Eksport i konwersja + Pandoc.
+- MS Forms/Google Forms: ankiety, testy, formularze, analiza wyników.
+- Współpraca online (udostępnianie, edycja, zaproszenia). Eksport i konwersja + Pandoc.
+- Advanced google search, email etykieta
 
 ## 9. Praca mobilna, integracje [1x]
 
