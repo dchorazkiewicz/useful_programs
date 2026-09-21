@@ -240,7 +240,7 @@ Niektóre narzędzia AI pozwalają na przekazanie promptu w formie:
 
 Wykorzystaj format najlepiej pasujący do zadania. Poleca się jednak **tekstowy prompt**, ponieważ jest najłatwiejszy do uporządkowania, archiwizacji i kontroli. 
 
-Jednakże rozważ wcześniej użycie **głosowego trybu** i nadanie jak najszerszego kontekstu, celów, działania i ograniczeń, aby uniknąć nieporozumień w interpretacji promptu przez AI. Potem każ AI uporządkować i przygotować ulepszony prompt, który trzeba będzie dopiero uruchomić.
+Jednakże rozważ wcześniej użycie **głosowego trybu** i nadanie jak najszerszego kontekstu, celów, działania i ograniczeń, aby uniknąć nieporozumień w interpretacji promptu przez AI. Potem każ AI uporządkować i przygotować ulepszony tekstowy prompt, który trzeba będzie dopiero uruchomić (oczywiście po uprzedniej weryfikacji).
 
 ---
 
