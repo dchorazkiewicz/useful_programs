@@ -1,4 +1,4 @@
-# 02. Markdown, Colab i GitHub — część II
+# 1. Markdown, Colab i GitHub
 
 ## Notatki wykładowe
 

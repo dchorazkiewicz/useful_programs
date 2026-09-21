@@ -1,4 +1,4 @@
-# 06. Obliczenia naukowe — część II
+# 5. LaTeX i dokumenty naukowe
 
 ## Notatki wykładowe
 

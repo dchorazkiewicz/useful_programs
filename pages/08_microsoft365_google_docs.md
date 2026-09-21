@@ -1,4 +1,4 @@
-# 01. Markdown, Colab i GitHub — część I
+# 8. Advanced Microsoft 365 / Google Docs
 
 ## Notatki wykładowe
 

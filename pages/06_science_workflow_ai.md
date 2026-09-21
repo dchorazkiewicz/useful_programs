@@ -1,4 +1,4 @@
-# 03. Terminal, WSL, VS Code i środowiska chmurowe — część I
+# 6. Science workflow i AI
 
 ## Notatki wykładowe
 

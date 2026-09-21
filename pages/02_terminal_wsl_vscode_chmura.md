@@ -1,4 +1,4 @@
-# 09. LaTeX i dokumenty naukowe — część I
+# 2. Terminal, WSL, VS Code i środowiska chmurowe
 
 ## Notatki wykładowe
 

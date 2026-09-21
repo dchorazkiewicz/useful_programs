@@ -1,4 +1,4 @@
-# 12. Grafika naukowa i użytkowa
+# 10. Finał
 
 ## Notatki wykładowe
 

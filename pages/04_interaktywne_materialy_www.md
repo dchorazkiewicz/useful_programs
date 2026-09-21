@@ -1,4 +1,4 @@
-# 07. Interaktywne materiały i publikacja w sieci — część I
+# 4. Interaktywne materiały i publikacja w sieci
 
 ## Notatki wykładowe
 

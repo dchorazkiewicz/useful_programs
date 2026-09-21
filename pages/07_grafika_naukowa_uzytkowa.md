@@ -1,4 +1,4 @@
-# 14. Praca mobilna, integracje
+# 7. Grafika naukowa i użytkowa
 
 ## Notatki wykładowe
 

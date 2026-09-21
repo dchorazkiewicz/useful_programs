@@ -1,4 +1,4 @@
-# 08. Interaktywne materiały i publikacja w sieci — część II
+# 3. Obliczenia naukowe
 
 ## Notatki wykładowe
 
