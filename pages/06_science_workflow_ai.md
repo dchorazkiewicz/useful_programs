@@ -229,6 +229,21 @@ Najważniejsza jest **jednoznaczność**, nie liczba słów.
 
 ---
 
+# Prompt nie musi być tekstowy
+
+Niektóre narzędzia AI pozwalają na przekazanie promptu w formie:
+- pliku,
+- fragmentu kodu,
+- dokumentu PDF,
+- obrazu.
+- głosu.
+
+Wykorzystaj format najlepiej pasujący do zadania. Poleca się jednak **tekstowy prompt**, ponieważ jest najłatwiejszy do uporządkowania, archiwizacji i kontroli. 
+
+Jednakże rozważ wcześniej użycie **głosowego trybu** i nadanie jak najszerszego kontekstu, celów, działania i ograniczeń, aby uniknąć nieporozumień w interpretacji promptu przez AI. Potem każ AI uporządkować i przygotować ulepszony prompt, który trzeba będzie dopiero uruchomić.
+
+---
+
 # Format odpowiedzi
 
 Jeżeli wynik ma później przetwarzać człowiek lub automat, warto określić format.
