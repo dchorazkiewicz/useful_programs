@@ -148,7 +148,7 @@ Logowanie do GitHuba daje dostęp do konta, ale samo nie otwiera ani nie klonuje
 5. Wklej adres repozytorium lub znajdź je na liście. Na zajęciach otwieraj **swój fork**, aby mieć możliwość zapisywania zmian.
 6. Pliki pojawią się w **Explorerze**. Możesz je przeglądać i edytować.
 
-**Uwaga na sposób zapisu:** w tym trybie commit wykonany przez rozszerzenie trafia bezpośrednio do repozytorium na GitHubie. Lokalny cykl „commit, a potem push” opisany niżej dotyczy klona lub Codespace. Wirtualny projekt nie udostępnia zwykłego terminala, uruchamiania i debugowania; do takich zadań przejdź do klona lub Codespaces. 
+**Uwaga na sposób zapisu:** w tym trybie commit wykonany przez rozszerzenie trafia bezpośrednio do repozytorium na GitHubie. Lokalny cykl „commit, a potem push” (*Zatwierdź i wyślij*) opisany niżej dotyczy klona lub Codespace. Wirtualny projekt nie udostępnia zwykłego terminala, uruchamiania i debugowania; do takich zadań przejdź do klona lub Codespaces. 
 
 - [Instrukcja GitHub Repositories](https://code.visualstudio.com/docs/sourcecontrol/github#_github-repositories-extension).
 
