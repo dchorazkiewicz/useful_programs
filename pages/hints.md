@@ -485,9 +485,3 @@ $$
 ```
 
 A line containing only one dollar sign is never valid for display mathematics in these repository notes.
-
-Add these checks before every commit:
-
-- [ ] There is no line containing only a single `$`.
-- [ ] The number of standalone `$$` delimiter lines is even.
-- [ ] Every display block opens with `$$` and closes with `$$`.
