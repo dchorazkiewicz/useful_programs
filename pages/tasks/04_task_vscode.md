@@ -14,33 +14,19 @@ W VS Code użyj Explorera by wejść do folderu `pages/zadania/04_sol_vscode`.
 
 ## Zadanie 3.
 
-Utwórz tam kompleksowy `raport.md` który ma zawierać opis rzutu ukośnego bez i z oporem powietrza.
+Utwórz tam kompleksowy `raport.md` który ma zawierać opis rzutu ukośnego bez i z oporem powietrza. Ma on przypominać przykład z `pages/examples/01_markdown/raport_cialo_na_sprezynie.md`
 
 1. Oczekuję sekcji, tekstu, równań matematycznych, ich wyprowadzeń.
 
 2. Oczekuje się wielu wykresów ilustrujących ruch ciała w rzucie ukośnym wraz z załączonymi obrazkami i prezentowanym kodem). Pamiętaj, że nie jesteś w Colabie i by stworzyć wykresy musisz jakoś uruchomić kod Pythona (np. w pomocniczym Colabie, lub poprzez uruchomienie pyhonowego pliku w samym VS Code).
 
-3. Uwaga: 
-    a. raport.md ma przypominać przykład z example/raport.md. 
-    b. Masz użyć wartość prędkości początkowej v0 = dwie pierwsze cyfry twojego indeksu. 
-    c. Masz użyć kąt początkowy α = dwie ostatnie cyfry twojego indeksu.
-    d. Wszystkie wartości powinny być zapisane w jednostkach SI.
-    
-Raport ma mieć strukturę:
+3. **Uwaga**: 
 
-~~~markdown
-# Raport
+    a. Masz użyć wartość prędkości początkowej v0 = **dwie pierwsze cyfry twojego indeks**u. 
 
-## Cel
+    b. Masz użyć kąt początkowy α = **dwie ostatnie cyfry twojego indeksu**.
 
-## Metoda
-
-## Kod
-
-## Wyniki
-
-## Wniosek
-~~~
+    c. Wszystkie wartości powinny być zapisane w jednostkach SI.
 
 ## Zadanie 4.
 
