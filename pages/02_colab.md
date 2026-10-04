@@ -4,7 +4,7 @@
 
 **[Google Colab](https://colab.research.google.com/)** to internetowe środowisko programistyczne oparte na notebookach Jupyter. Umożliwia pisanie i uruchamianie kodu w Pythonie bez instalowania dodatkowego oprogramowania — wystarczy przeglądarka i konto Google. Colab oferuje bezpłatny dostęp z ograniczonymi zasobami oraz płatne plany.
 
-Darmowa wersja zapewnia dostęp do **12,6 GB** RAM, **2 rdzeni** CPU oraz dysku o pojemności **107 GB**.
+Darmowa wersja zapewnia dostęp do **12,6 GB** RAM, **parę rdzeni** CPU oraz dysku o pojemności **107 GB**.
 
 Jest wystarczająco szybki do większości zadań programistycznych i wielu studentów korzysta z niego w ramach kursów programowania, nawet do ternowania sieci neuronowych.
 
@@ -288,7 +288,9 @@ Colab ma również wbudowane narzędzie AI oparte na Gemini, które pomaga gener
 
 Nazywa się Gemini Copilot i jest dostępne w menu **Tools → AI Assistant** lub przez ikonę w prawym górnym rogu Colaba.
 
-Ich dostępność zależy m.in. od wieku użytkownika i obsługiwanego regionu.
+## Błędy
+
+Podczas pracy w Colabie mogą pojawić się różne błędy, np. związane z brakującymi bibliotekami, błędami składniowymi w kodzie czy problemami z dostępem do plików. Przekopiuj komunikaty błędów do Copilota Gemini lub innego narzędzia AI, aby uzyskać pomoc w ich rozwiązaniu. Często AI poprawi jakąś subtelną część kodu lub wskaże, co należy zmienić.
 
 ---
 
