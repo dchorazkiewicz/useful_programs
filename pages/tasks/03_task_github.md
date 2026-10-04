@@ -1,14 +1,16 @@
-# Zadania: Github
+# Zadania: GitHub (z Codespace)
+
+**Folder na rozwiązania:** [`pages/solutions/03_sol_github/`](../solutions/03_sol_github/) (ścieżka względem głównego katalogu repozytorium).
 
 ## Zadanie 1.
 
-Wejdź do sforkowanego repozytorium poprzez stronę GitHub i uruchom Codespace w przeglądarce (czyli odpal VS Code w przeglądarce).
+Wejdź do sforkowanego repozytorium poprzez stronę GitHub i uruchom **Codespace** w przeglądarce (czyli odpal VS Code w przeglądarce). Nie realizuj tego poprzez standardową edycję plików na GitHub tylko znajdź przycisk **Code**, a następnie wybierz **Open with Codespaces** i poczekaj jak odpali ci się przeglądarka z Visual Studio Code wewnętrz GitHub.
 
-## Zadanie 2,
+## Zadanie 2.
 
-Stwórz nowy plik `codespace.md` w folderze `pages/zadania/03_sol_github` i umieść w nim listę 10 komiksowych postaci.
+Stwórz nowy plik `codespace.md` w folderze `pages/solutions/03_sol_github/` i umieść w nim listę 10 komiksowych lub manga/anime postaci.
 
-Stwórz nowy plik `codespace.py` w folderze `pages/zadania/03_sol_github` i umieść w nim przykładowy kod Pythona.
+Stwórz nowy plik `codespace.py` w folderze `pages/solutions/03_sol_github/` i umieść w nim przykładowy kod Pythona.
 
 ```python
 import turtle
@@ -26,14 +28,14 @@ turtle.exitonclick()
 
 ## Zadanie 3.
 
-Wykonaj `commit and push` czyli `Zatwierdź zmiany i wyślij je` do repozytorium.
+Zatwierdź zmiany (`Commit & Push`) by wysłać je do repozytorium.
 
 Sprawdź w innej zakładce przeglądarki, ponownie poprzez stronę GitHub (github.com a nie Codespace), czy plik `codespace.md` oraz `codespace.py` został dodany do repozytorium.
 
 ## Zadanie 4.
 
-W podfolderze `pages/zadania/...` znajdują się trzy ikonografiki w rozszerzeniu `png`. Znajdź "Chat" w Codespace, i poproś AI o "zmergowanie" tych plików do pojedyńczego pdfa o nazwie `ikonografiki.pdf`.
+W podfolderze [`pages/solutions/03_sol_github/merge/`](../solutions/03_sol_github/merge/) znajdują się trzy ikonografiki w rozszerzeniu `png`. Kliknij jedną z nich, a następnie znajdź "Toggle Chat" (skrót `Ctrl+Alt+I`)  w Codespace, i poproś w prawym oknie AI o "zmergowanie" tych plików do pojedynczego pdfa o nazwie `ikonografiki.pdf`, zapisanego w folderze `pages/solutions/03_sol_github/`. Sugestia: *"merge all PNG files in the merge folder into a single PDF named ikonografiki.pdf."*
 
 ## Zadanie 5.
 
-W folderze `pages/zadania/...` znajduje się plik `document.md`. Używając Chata w Codespace, poproś AI o przekształcenie zawartości tego pliku do formatu pdf i zapisanie go jako `document.docx` oraz `document.pdf` przy użyciu biblioteki `pandoc`.
+Przykładowy raport znajduje się w pliku [`pages/solutions/03_sol_github/document.md`](../solutions/03_sol_github/document.md). Używając Toggle Chat (skrót `Ctrl+Alt+I`) w Codespace, poproś AI o przekształcenie zawartości tego pliku i zapisanie go obok w folderze  `pages/solutions/03_sol_github/` w nowych formatach: jako `document.docx` oraz `document.pdf` przy użyciu biblioteki `pandoc`. Sugestia: kliknij na plik w Explorerze po lewej stronie a po prawej cześci ekranu w Chat wpisz *"export document.md to document.docx and document.pdf using pandoc."*

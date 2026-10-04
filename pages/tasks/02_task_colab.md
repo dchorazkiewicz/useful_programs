@@ -1,8 +1,10 @@
 # Zadania: Colab
 
+**Folder na rozwiązania:** [`pages/solutions/02_sol_colab/`](../solutions/02_sol_colab/) (ścieżka względem głównego katalogu repozytorium).
+
 ## Zadanie 1.
 
-Utwórz notebook `colab_intro.ipynb` w Colabie i potem docelowo zapisz go w swoim sforkowanym repozytorium na Githubie w folderze `solutions/02_sol_colab/`
+Utwórz notebook `colab_intro.ipynb` w Colabie i potem docelowo zapisz go w swoim sforkowanym repozytorium na GitHubie w folderze `pages/solutions/02_sol_colab/`
 
 ## Zadanie 2.
 
@@ -50,6 +52,6 @@ Na końcu zrestartuj runtime i uruchom wszystkie komórki od początku i upewnij
 
 ## Zadanie 4.
 
-Dodaj do repozytorium na githubie w odpowiednim miejscu czyli w folderze `solutions/02_sol_colab/` otrzymane pliki: notebook `colab_intro.ipynb`, plik tekstowy`colab_wynik.txt`, a także obrazek `wykres.png`, `video.gif` oraz `parametric_curve.png`. 
+Dodaj do repozytorium na GitHubie w odpowiednim miejscu czyli w folderze `pages/solutions/02_sol_colab/` otrzymane pliki: notebook `colab_intro.ipynb`, plik tekstowy `colab_wynik.txt`, a także obrazek `wykres.png`, `video.gif` oraz `parametric_curve.png`.
 
 Nie załączaj wideo `video.mp4`, bo plik za dużo waży!

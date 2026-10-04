@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Wykresy do raportu o ciele na sprężynie.
 
-Uruchom z katalogu pages/create: python generuj_wykresy.py
+Uruchom z katalogu pages/examples/01_markdown: python generuj_wykresy.py
 Kod odpowiada czterem blokom Python zamieszczonym w raporcie.
 """
 

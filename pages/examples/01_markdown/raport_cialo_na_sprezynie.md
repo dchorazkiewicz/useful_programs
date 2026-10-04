@@ -483,7 +483,7 @@ Wykresy wykonano za pomocą NumPy, Matplotlib i SciPy. Wszystkie osie mają opis
 3. Uruchom je po kolei od bloku A do D. Kolejne bloki korzystają ze zmiennych i funkcji z wcześniejszych.
 4. Pobierz katalog `files/sprezyna` z wynikami i umieść go obok tego raportu, zachowując strukturę podfolderów.
 
-Lokalnie możesz uruchomić dołączony [skrypt `generuj_wykresy.py`](generuj_wykresy.py), zawierający te same cztery bloki. Z katalogu `pages/create` wykonaj:
+Lokalnie możesz uruchomić dołączony [skrypt `generuj_wykresy.py`](generuj_wykresy.py), zawierający te same cztery bloki. Z katalogu `pages/examples/01_markdown` wykonaj:
 
 ```bash
 python -m pip install numpy matplotlib scipy
@@ -719,7 +719,7 @@ print(f"Gotowe: zapisano 7 rysunków w {OUT.resolve()}")
 ### 7.6. Struktura plików
 
 ```text
-pages/create/
+pages/examples/01_markdown/
 ├── raport_cialo_na_sprezynie.md
 ├── generuj_wykresy.py
 └── files/

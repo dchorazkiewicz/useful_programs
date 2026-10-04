@@ -1,20 +1,22 @@
 # Zadania: Markdown
 
+**Folder na rozwiązania:** [`pages/solutions/01_sol_markdown/`](../solutions/01_sol_markdown/) (ścieżka względem głównego katalogu repozytorium).
+
 ## Zadanie 1.
 
 Załóż konto na GitHubie i się do niego zaloguj.
 
-## Zadanie 2. 
+## Zadanie 2.
 
 Wykonaj `Fork` repozytorium przedmiotu na swoim koncie GitHub.
 
-## Zadanie 3. 
+## Zadanie 3.
 
 Wejdź w ustawienia repozytorium Settings i przewiń do sekcji `Issues`. Włącz opcję pozwalającą na tworzenie nowych zgłoszeń (Issues). Umożliwi to otrzymywanie feedbacku od prowadzącego.
 
 ## Zadanie 4.
 
-Wejdź w folder `solutions/01_sol_markdown/` i utwórz tam plik Markdown `README.md`. Ważna jest wielkość liter w nazwie pliku oraz rozszerzenie.
+Wejdź w folder `pages/solutions/01_sol_markdown/` i utwórz tam plik Markdown `README.md`. Ważna jest wielkość liter w nazwie pliku oraz rozszerzenie.
 
 Plik ma docelowo zawierać:
 
@@ -37,13 +39,13 @@ Plik ma docelowo zawierać:
 Po zapisaniu pliku otwórz jego wyrenderowany widok na GitHubie i sprawdź, czy wszystkie elementy wyglądają poprawnie. Na ten moment po wykonaniu tego zadania folder powinien zawierać:
 
 ~~~text
-solutions/01_sol_markdown/
+pages/solutions/01_sol_markdown/
 ├── README.md
 ├── wykres.png
 └── zrzut.png
 ~~~
 
-## Zadanie 5. 
+## Zadanie 5.
 
 Weź zrzut ekranu `zrzut.png` z ręcznymi notatkami z folderu, a następnie użyj narzędzia AI do przepisania informacji (transkrypcji) widocznej na zrzucie do kodu Markdown. Wynik zapisz jako `transkrypcja.md`.
 
@@ -65,12 +67,12 @@ Tutaj wklej treść promptu użytego do wygenerowania tekstu przez AI.
 Końcowa wersja transkrypcji, gdzie wszystkie błędy zostały poprawione! Prawdopodobnie kod otrzymany przez AI będzie zawierał pewne błędy lub nieścisłości z racji automatycznego przetwarzania obrazu i nie będzie idealny. Twoim zadaniem jest zapewnienie poprawnego renderowania i zgodności (do pewnego stopnia) z rzeczywistym tekstem widocznym na zrzucie.
 ~~~
 
-# Uwaga końcowa
+## Uwaga końcowa
 
 Finalny folder powinien zawierać:
 
 ~~~text
-solutions/01_sol_markdown/
+pages/solutions/01_sol_markdown/
 ├── README.md
 ├── wykres.png
 ├── zrzut.png

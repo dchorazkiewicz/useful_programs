@@ -53,7 +53,9 @@ Podobnie edytory kodu jak VS Code, PyCharm czy Jupyter Notebook potrafią render
 
 ## Zanim zaczniemy pisać w Markdown zobacz przykładowy plik Markdown
 
-Raport na temat ciała na sprężynie: [„Ciało na sprężynie”](examples/01_markdown/Cialo_na_sprezynie_2026.md).
+Raport na temat ciała na sprężynie: 
+
+- [„Ciało na sprężynie”](examples/01_markdown/raport_cialo_na_sprezynie.md).
 
 ## Nagłówki
 

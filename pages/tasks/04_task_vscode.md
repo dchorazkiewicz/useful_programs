@@ -1,5 +1,7 @@
 # Zadania: Visual Studio Code
 
+**Folder na rozwiązania:** [`pages/solutions/04_sol_vscode/`](../solutions/04_sol_vscode/) (ścieżka względem głównego katalogu repozytorium).
+
 Tym razem zajmiemy się zadaniami związanymi z użyciem lokalnej instalacji Visual Studio Code na komputerze pracowni a nie poprzez Code Spaces na sforkowane repozytorium na stronie GitHub..
 
 ## Zadanie 1.
@@ -10,13 +12,13 @@ Jeśli jesteś zaawansowanym użytkownikiem, możesz zamiast tego sklonować rep
 
 ## Zadanie 2.
 
-W VS Code użyj Explorera by wejść do folderu `pages/zadania/04_sol_vscode`.
+W VS Code użyj Explorera by wejść do folderu `pages/solutions/04_sol_vscode/`.
 
 ## Zadanie 3.
 
-Utwórz tam kompleksowy `raport.md` który ma zawierać opis rzutu ukośnego bez i z oporem powietrza. Ma on przypominać przykład z `pages/examples/01_markdown/raport_cialo_na_sprezynie.md`
+Utwórz tam kompleksowy `raport.md` który ma zawierać opis rzutu ukośnego bez i z oporem powietrza. Ma on przypominać przykład z [`pages/examples/01_markdown/raport_cialo_na_sprezynie.md`](../examples/01_markdown/raport_cialo_na_sprezynie.md)
 
-1. Oczekuję sekcji, tekstu, równań matematycznych, ich wyprowadzeń.
+1. Oczekuje się przejrzystych sekcji, tekstu, równań matematycznych i ich wyprowadzeń.
 
 2. Oczekuje się wielu wykresów ilustrujących ruch ciała w rzucie ukośnym wraz z załączonymi obrazkami i prezentowanym kodem). Pamiętaj, że nie jesteś w Colabie i by stworzyć wykresy musisz jakoś uruchomić kod Pythona (np. w pomocniczym Colabie, lub poprzez uruchomienie pyhonowego pliku w samym VS Code).
 
