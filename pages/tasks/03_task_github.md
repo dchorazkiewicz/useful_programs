@@ -6,6 +6,8 @@
 
 Wejdź do sforkowanego repozytorium poprzez stronę GitHub i uruchom **Codespace** w przeglądarce (czyli odpal VS Code w przeglądarce). Nie realizuj tego poprzez standardową edycję plików na GitHub tylko znajdź przycisk **Code**, a następnie wybierz **Open with Codespaces** i poczekaj jak odpali ci się przeglądarka z Visual Studio Code wewnętrz GitHub.
 
+**Uwaga:** Aby poprawnie wykonać to zadanie, należy zapoznać się z materiałami wykładowymi w pliku `04_vscode.md`, po omówieniu lokalnej instalacji VS Code.
+
 ## Zadanie 2.
 
 Stwórz nowy plik `codespace.md` w folderze `pages/solutions/03_sol_github/` i umieść w nim listę 10 komiksowych lub manga/anime postaci.
